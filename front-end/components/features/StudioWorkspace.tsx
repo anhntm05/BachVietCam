@@ -2,7 +2,7 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 import EvaluationMetrics, { EvaluationResult } from './EvaluationMetrics';
-import { useAudio } from '../hooks/useAudio';
+import { useAudio } from '@/hooks/useAudio';
 import { Waveform } from './Waveform';
 
 const GATEWAY_URL =
