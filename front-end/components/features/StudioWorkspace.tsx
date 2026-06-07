@@ -132,8 +132,13 @@ export default function StudioWorkspace() {
             }
             setResult(data as EvaluationResult);
         } catch (error) {
-            const msg = error instanceof Error ? error.message : 'Lỗi kết nối tới Gateway.';
-            alert(msg);
+            console.error('Fetch error details:', error);
+            const rawMsg = error instanceof Error ? error.message : 'Lỗi kết nối tới Gateway.';
+            const isFailedToFetch = rawMsg.toLowerCase().includes('failed to fetch');
+            const alertMsg = isFailedToFetch
+                ? `Lỗi mạng (CORS hoặc URL sai). Đang cố gọi tới: ${GATEWAY_URL}. Chi tiết: ${rawMsg}`
+                : rawMsg;
+            alert(alertMsg);
         } finally {
             setLoading(false);
         }
