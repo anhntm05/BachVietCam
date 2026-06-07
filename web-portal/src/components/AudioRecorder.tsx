@@ -40,6 +40,7 @@ export function AudioRecorder() {
     const [teacherFile, setTeacherFile] = useState<File | null>(null);
     // Ten file hoc vien khi tai len (che do upload)
     const [studentFileName, setStudentFileName] = useState<string | null>(null);
+    const [studentUploadedFile, setStudentUploadedFile] = useState<File | null>(null);
 
     const teacherInputRef = useRef<HTMLInputElement | null>(null);
     const studentInputRef = useRef<HTMLInputElement | null>(null);
@@ -69,7 +70,7 @@ export function AudioRecorder() {
         if (file) {
             setResult(null);
             setStudentFileName(file.name);
-            setAudioBlob(file);
+            setStudentUploadedFile(file);
         }
     };
 
@@ -80,7 +81,7 @@ export function AudioRecorder() {
         if (isValid) {
             setResult(null);
             setStudentFileName(file.name);
-            setAudioBlob(file);
+            setStudentUploadedFile(file);
         } else {
             alert('Vui lòng chỉ kéo thả tệp âm thanh.');
         }
@@ -91,7 +92,10 @@ export function AudioRecorder() {
             alert('Vui lòng tải lên bản mẫu của giáo viên trước.');
             return;
         }
-        if (!audioBlob) {
+        const finalStudentBlob = studentMode === 'record' ? audioBlob : studentUploadedFile;
+        const finalStudentName = studentMode === 'record' ? 'student_take.wav' : (studentFileName || 'student_take.wav');
+
+        if (!finalStudentBlob) {
             alert('Vui lòng ghi âm hoặc tải lên bản của học viên.');
             return;
         }
@@ -101,7 +105,7 @@ export function AudioRecorder() {
 
         const formData = new FormData();
         formData.append('teacher', teacherFile, teacherFile.name);
-        formData.append('student', audioBlob, studentFileName || 'student_take.webm');
+        formData.append('student', finalStudentBlob, finalStudentName);
         formData.append('instrument_id', instrumentId);
 
         try {
@@ -123,8 +127,8 @@ export function AudioRecorder() {
         }
     };
 
-    const handleResetStudent = () => {
-        resetAudio();
+    const handleResetStudentUpload = () => {
+        setStudentUploadedFile(null);
         setStudentFileName(null);
         setResult(null);
         if (studentInputRef.current) studentInputRef.current.value = '';
@@ -143,7 +147,8 @@ export function AudioRecorder() {
     };
 
     const scoreTheme = result ? getScoreTheme(result.pitch_accuracy_percent) : null;
-    const canSubmit = !!teacherFile && !!audioBlob && !isRecording && !loading;
+    const currentStudentBlob = studentMode === 'record' ? audioBlob : studentUploadedFile;
+    const canSubmit = !!teacherFile && !!currentStudentBlob && !isRecording && !loading;
 
     return (
         <div style={styles.card} className="glass-panel">
@@ -227,13 +232,13 @@ export function AudioRecorder() {
                 <div style={styles.subTabContainer}>
                     <button
                         style={{ ...styles.subTab, ...(studentMode === 'record' ? styles.subTabActive : {}) }}
-                        onClick={() => { setStudentMode('record'); handleResetStudent(); }}
+                        onClick={() => { setStudentMode('record'); setResult(null); }}
                     >
                         Thu trực tiếp
                     </button>
                     <button
                         style={{ ...styles.subTab, ...(studentMode === 'upload' ? styles.subTabActive : {}) }}
-                        onClick={() => { setStudentMode('upload'); handleResetStudent(); }}
+                        onClick={() => { setStudentMode('upload'); setResult(null); }}
                     >
                         Tải tệp lên
                     </button>
@@ -246,18 +251,37 @@ export function AudioRecorder() {
                         </div>
                         <div style={styles.actions}>
                             {!isRecording ? (
-                                <button onClick={startRecording} disabled={loading} style={styles.btnRecord}>
-                                    {audioBlob ? 'Ghi lại' : 'Ghi âm mới'}
-                                </button>
+                                <>
+                                    <button onClick={startRecording} disabled={loading} style={styles.btnRecord}>
+                                        {audioBlob ? 'Ghi lại' : 'Ghi âm mới'}
+                                    </button>
+                                </>
                             ) : (
                                 <button onClick={stopRecording} style={styles.btnStop}>
                                     Dừng ghi
                                 </button>
                             )}
                         </div>
+                        {audioBlob && !isRecording && (
+                            <div style={{ marginTop: '16px', padding: '12px', backgroundColor: 'rgba(255, 255, 255, 0.05)', borderRadius: '10px' }}>
+                                <audio controls src={URL.createObjectURL(audioBlob)} style={{ width: '100%', marginBottom: '10px', height: '36px', outline: 'none' }} />
+                                <div style={{ display: 'flex', gap: '8px' }}>
+                                    <a 
+                                        href={URL.createObjectURL(audioBlob)} 
+                                        download="student_take.wav"
+                                        style={{ ...styles.subTab, textAlign: 'center', textDecoration: 'none', color: '#18E3F3', borderColor: 'rgba(24, 227, 243, 0.3)' }}
+                                    >
+                                        Tải xuống
+                                    </a>
+                                    <button onClick={resetAudio} style={{ ...styles.subTab, color: '#ef4444', borderColor: 'rgba(239, 68, 68, 0.3)' }}>
+                                        Xóa bản thu
+                                    </button>
+                                </div>
+                            </div>
+                        )}
                     </div>
                 ) : (
-                    !audioBlob ? (
+                    !studentUploadedFile ? (
                         <div
                             style={styles.uploadAreaSmall}
                             onDragOver={(e) => e.preventDefault()}
@@ -281,7 +305,7 @@ export function AudioRecorder() {
                                 <span style={styles.fileName}>{studentFileName}</span>
                                 <span style={styles.fileReadyBadge}>Đã sẵn sàng phân tích</span>
                             </div>
-                            <button style={styles.btnRemoveFile} onClick={handleResetStudent} aria-label="Xóa">✕</button>
+                            <button style={styles.btnRemoveFile} onClick={handleResetStudentUpload} aria-label="Xóa">✕</button>
                         </div>
                     )
                 )}
