@@ -6,6 +6,10 @@ import { useAudio } from '@/hooks/useAudio';
 import { Waveform } from './Waveform';
 
 
+const GATEWAY_URL =
+    (typeof process !== 'undefined' && process.env?.NEXT_PUBLIC_GATEWAY_URL) ||
+    'http://127.0.0.1:4000';
+
 const INSTRUMENTS = [
     { id: 'dan_bau', label: 'Đàn Bầu (Monochord)' },
     { id: 'dan_nhi', label: 'Đàn Nhị (Two-string Fiddle)' },
@@ -109,9 +113,8 @@ export default function StudioWorkspace() {
         formData.append('instrument_id', instrumentId);
 
         try {
-            // Vercel Next.js rewrites se tu dong proxy request tu /api sang GATEWAY_URL
-            // Nho the trinh duyet khong bi loi CORS.
-            const response = await fetch('/api/evaluate-pair', {
+            // Fetch directly from the Render URL to bypass Vercel's 10s timeout limit
+            const response = await fetch(`${GATEWAY_URL}/api/evaluate-pair`, {
                 method: 'POST',
                 body: formData,
             });

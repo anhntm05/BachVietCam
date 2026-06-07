@@ -107,32 +107,37 @@ def evaluate_pair_view(request):
     Cham diem so truc tiep hai file da nam tren dia (luong gateway):
     teacher_path va student_path. Khong dung template luu san.
     """
-    from evaluator import instruments
-
-    instrument_id = request.POST.get("instrument_id")
-    teacher_path = request.POST.get("teacher_path")
-    student_path = request.POST.get("student_path")
-
-    if not instruments.is_supported(instrument_id):
-        return JsonResponse(
-            {"error": f"Nhac cu khong ho tro: {instrument_id}"}, status=400
-        )
-    if not teacher_path or not student_path:
-        return JsonResponse(
-            {"error": "Thieu teacher_path hoac student_path"}, status=400
-        )
-    if not os.path.exists(teacher_path):
-        return JsonResponse({"error": "Khong tim thay file giao vien"}, status=404)
-    if not os.path.exists(student_path):
-        return JsonResponse({"error": "Khong tim thay file hoc vien"}, status=404)
-
-    instrument = instruments.get_instrument(instrument_id)
     try:
-        result = services.evaluate_pair(teacher_path, student_path, instrument)
-    except Exception as e:
-        return JsonResponse({"error": f"Loi xu ly am thanh: {e}"}, status=500)
+        from evaluator import instruments
 
-    return JsonResponse(result, status=200)
+        instrument_id = request.POST.get("instrument_id")
+        teacher_path = request.POST.get("teacher_path")
+        student_path = request.POST.get("student_path")
+
+        if not instruments.is_supported(instrument_id):
+            return JsonResponse(
+                {"error": f"Nhac cu khong ho tro: {instrument_id}"}, status=400
+            )
+        if not teacher_path or not student_path:
+            return JsonResponse(
+                {"error": "Thieu teacher_path hoac student_path"}, status=400
+            )
+        if not os.path.exists(teacher_path):
+            return JsonResponse({"error": f"Khong tim thay file giao vien: {teacher_path}"}, status=404)
+        if not os.path.exists(student_path):
+            return JsonResponse({"error": f"Khong tim thay file hoc vien: {student_path}"}, status=404)
+
+        instrument = instruments.get_instrument(instrument_id)
+        try:
+            result = services.evaluate_pair(teacher_path, student_path, instrument)
+        except Exception as e:
+            return JsonResponse({"error": f"Loi xu ly am thanh: {e}"}, status=500)
+
+        return JsonResponse(result, status=200)
+    except Exception as e:
+        import traceback
+        error_trace = traceback.format_exc()
+        return JsonResponse({"error": f"Internal View Error: {e}\n{error_trace}"}, status=500)
 
 
 @require_POST
