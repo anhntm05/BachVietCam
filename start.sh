@@ -10,12 +10,16 @@ export AI_SERVICE_URL="http://127.0.0.1:8000"
 export SHARED_STORAGE_PATH="/app/shared_storage"
 export SHARED_STORAGE_DIR="/app/shared_storage"
 
+# Numba (used by librosa) is very CPU intensive on first run. Limit threads to prevent memory spikes.
+export NUMBA_NUM_THREADS=1
+export NUMBA_CACHE_DIR=/tmp/numba_cache
+
 echo "Starting Django AI Service internally on port 8000..."
 cd /app/ai-service
 # Run django migrations just in case
 python manage.py migrate
-# Bind Gunicorn to localhost so only API Gateway can talk to it
-gunicorn ai_service.wsgi:application --bind 127.0.0.1:8000 &
+# Bind Gunicorn to localhost with a 120s timeout so Numba has time to compile librosa algorithms
+gunicorn ai_service.wsgi:application --bind 127.0.0.1:8000 --timeout 120 &
 
 echo "Starting API Gateway on Render port $PORT..."
 cd /app/api-gateway
