@@ -119,7 +119,14 @@ export default function StudioWorkspace() {
                 body: formData,
             });
 
-            const data = await response.json();
+            let data;
+            const text = await response.text();
+            try {
+                data = JSON.parse(text);
+            } catch (e) {
+                throw new Error(`Frontend Fetch Error! URL: ${GATEWAY_URL}/api/evaluate-pair. Status: ${response.status}. HTML: ${text.substring(0, 100)}`);
+            }
+
             if (!response.ok) {
                 throw new Error(data.error || 'Yêu cầu chấm điểm thất bại.');
             }
