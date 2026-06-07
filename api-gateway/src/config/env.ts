@@ -35,5 +35,5 @@ export const config = {
   aiRequestTimeoutMs: parseInt(process.env.AI_TIMEOUT_MS ?? '120000', 10),
 
   // CORS Origin cho phep frontend goi api. Split bang dau phay neu co nhieu domain.
-  corsOrigin: process.env.CORS_ORIGIN ? process.env.CORS_ORIGIN.split(',') : 'http://localhost:3000',
+  corsOrigin: process.env.CORS_ORIGIN === '*' ? '*' : (process.env.CORS_ORIGIN ? process.env.CORS_ORIGIN.split(',') : 'http://localhost:3000'),
 };

@@ -8,7 +8,7 @@ import path from 'path';
 import multer from 'multer';
 import { config } from '../config/env';
 
-const ALLOWED_EXT = new Set(['.mp3', '.wav', '.m4a', '.ogg', '.flac']);
+const ALLOWED_EXT = new Set(['.mp3', '.wav', '.m4a', '.ogg', '.flac', '.webm']);
 
 const storage = multer.diskStorage({
   destination: (_req, _file, cb) => {
