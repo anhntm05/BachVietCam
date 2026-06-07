@@ -1,4 +1,4 @@
-# MusyWeb — Hệ thống Chấm điểm Nhạc cụ Truyền thống Việt Nam
+# BachVietCam — Hệ thống Chấm điểm Nhạc cụ Truyền thống Việt Nam
 
 Hệ thống phân tích và chấm điểm bản ghi âm nhạc cụ truyền thống bằng cách so sánh
 bản trình diễn của học viên với bản mẫu của giáo viên. Điểm cao độ được tính trên
@@ -37,7 +37,7 @@ lần chấm, không cần lưu template trước.
 ## Cấu trúc thư mục
 
 ```
-musyweb/
+bachvietcam/
 ├── ai-service/        # Django AI service
 ├── api-gateway/       # Express gateway
 ├── web-portal/        # Next.js frontend

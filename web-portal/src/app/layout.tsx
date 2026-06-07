@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'Detect.Music — Chấm điểm Âm nhạc Dân tộc',
+  title: 'Bach Viet Cam — Chấm điểm Âm nhạc Dân tộc',
   description:
     'Phân tích cao độ trên thang cents và căn chỉnh trục thời gian bằng DTW cho nhạc cụ truyền thống Việt Nam.',
 };

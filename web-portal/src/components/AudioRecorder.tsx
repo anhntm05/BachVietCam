@@ -101,7 +101,7 @@ export function AudioRecorder() {
 
         const formData = new FormData();
         formData.append('teacher', teacherFile, teacherFile.name);
-        formData.append('student', audioBlob, studentFileName || 'student_take.webm');
+        formData.append('student', audioBlob, studentFileName || 'student_take.wav');
         formData.append('instrument_id', instrumentId);
 
         try {

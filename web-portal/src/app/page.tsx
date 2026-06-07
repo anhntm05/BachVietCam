@@ -1143,7 +1143,7 @@ export default function Home() {
           </span>
         </div>
         <div className="footer-note">
-          © 2026 Detect.Music. Đã bảo lưu mọi quyền.<br />
+          © 2026 Bach Viet Cam. Đã bảo lưu mọi quyền.<br />
           Thiết kế và vận hành hệ thống âm học truyền thống Việt Nam.
         </div>
         <button className="footer-contact" onClick={() => setIsContactOpen(true)}>Hỗ trợ Kỹ thuật &amp; Liên hệ</button>
