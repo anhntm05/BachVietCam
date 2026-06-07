@@ -4,7 +4,12 @@
 // Doi qua bien moi truong neu gateway chay cong khac.
 const GATEWAY_URL = process.env.GATEWAY_URL || 'http://localhost:4000';
 
+const path = require('path');
+
 const nextConfig = {
+  experimental: {
+    outputFileTracingRoot: path.join(__dirname, './'),
+  },
   async rewrites() {
     return [
       {
