@@ -15,9 +15,6 @@ interface EvaluationResult {
     student_tempo_bpm: number;
 }
 
-const GATEWAY_URL =
-    (typeof process !== 'undefined' && process.env?.NEXT_PUBLIC_GATEWAY_URL) ||
-    'http://127.0.0.1:4000';
 
 const INSTRUMENTS = [
     { id: 'dan_bau', label: 'Đàn Bầu (Monochord)' },
@@ -109,7 +106,9 @@ export function AudioRecorder() {
         formData.append('instrument_id', instrumentId);
 
         try {
-            const response = await fetch(`${GATEWAY_URL}/api/evaluate-pair`, {
+            // Vercel Next.js rewrites se tu dong proxy request tu /api sang GATEWAY_URL
+            // Nho the trinh duyet khong bi loi CORS.
+            const response = await fetch('/api/evaluate-pair', {
                 method: 'POST',
                 body: formData,
             });
