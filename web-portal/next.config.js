@@ -2,7 +2,7 @@
 
 // URL cua api-gateway (Express). Mac dinh cong 4000.
 // Doi qua bien moi truong neu gateway chay cong khac.
-const GATEWAY_URL = process.env.GATEWAY_URL || 'http://127.0.0.1:4000';
+const GATEWAY_URL = process.env.GATEWAY_URL || 'http://localhost:4000';
 
 const nextConfig = {
   async rewrites() {

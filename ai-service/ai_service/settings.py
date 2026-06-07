@@ -17,10 +17,12 @@ ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS", "*").split(",")
 INSTALLED_APPS = [
     "django.contrib.contenttypes",
     "django.contrib.auth",
+    "corsheaders",
     "evaluator",
 ]
 
 MIDDLEWARE = [
+    "corsheaders.middleware.CorsMiddleware",
     "django.middleware.common.CommonMiddleware",
 ]
 
@@ -33,6 +35,8 @@ DATABASES = {
         "NAME": BASE_DIR / "db.sqlite3",
     }
 }
+
+CORS_ALLOW_ALL_ORIGINS = True
 
 # Thu muc dung chung voi gateway. Mac dinh tro len thu muc goc du an.
 _DEFAULT_SHARED = BASE_DIR.parent / "shared_storage"
