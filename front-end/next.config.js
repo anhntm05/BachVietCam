@@ -8,7 +8,15 @@ const path = require('path');
 
 const nextConfig = {
   experimental: {
-    outputFileTracingRoot: path.join(__dirname, './'),
+    outputFileTracingExcludes: {
+      '*': [
+        '../ai-service/**/*',
+        '../api-gateway/**/*',
+        '../shared_storage/**/*',
+        '../venv/**/*',
+        '../.git/**/*',
+      ],
+    },
   },
   async rewrites() {
     return [
