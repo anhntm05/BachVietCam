@@ -1,10 +1,12 @@
 import express from 'express';
 import multer from 'multer';
+import cors from 'cors';
 import { config } from './config/env';
 import apiRouter from './routes';
 
 const app = express();
 
+app.use(cors({ origin: config.corsOrigin }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 

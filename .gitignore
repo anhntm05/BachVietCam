@@ -14,7 +14,7 @@ db.sqlite3
 
 # File .env that (chua secret), chi commit .env.example
 .env
-*.env
+.env.*
 !.env.example
 
 # ==============================

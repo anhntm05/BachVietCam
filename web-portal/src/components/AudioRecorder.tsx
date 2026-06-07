@@ -55,7 +55,8 @@ export function AudioRecorder() {
     const handleTeacherDrop = (e: React.DragEvent) => {
         e.preventDefault();
         const file = e.dataTransfer.files?.[0];
-        if (file && file.type.startsWith('audio/')) {
+        const isValid = file && (file.type.startsWith('audio/') || file.type.startsWith('video/mp4') || /\.(mp3|wav|m4a|ogg|flac|webm)$/i.test(file.name));
+        if (isValid) {
             setResult(null);
             setTeacherFile(file);
         } else {
@@ -75,7 +76,8 @@ export function AudioRecorder() {
     const handleStudentDrop = (e: React.DragEvent) => {
         e.preventDefault();
         const file = e.dataTransfer.files?.[0];
-        if (file && file.type.startsWith('audio/')) {
+        const isValid = file && (file.type.startsWith('audio/') || file.type.startsWith('video/mp4') || /\.(mp3|wav|m4a|ogg|flac|webm)$/i.test(file.name));
+        if (isValid) {
             setResult(null);
             setStudentFileName(file.name);
             setAudioBlob(file);
