@@ -8,7 +8,7 @@ export default function Footer() {
         <div className="md:col-span-1 flex flex-col gap-4">
           <div className="font-headline-sm text-headline-sm text-primary">Bách Việt Cầm</div>
           <p className="font-body-md text-body-md text-secondary dark:text-secondary-fixed-dim">
-            © 2024 Bách Việt Cầm. Di sản âm nhạc dân tộc trong kỷ nguyên số.
+            © 2026 Bách Việt Cầm. Di sản âm nhạc dân tộc trong kỷ nguyên số.
           </p>
         </div>
 
