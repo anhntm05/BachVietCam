@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 
 export default function Footer() {
   return (
@@ -6,7 +7,10 @@ export default function Footer() {
       <div className="w-full px-margin-desktop max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-4 gap-gutter items-start">
         {/* Brand / Copyright */}
         <div className="md:col-span-1 flex flex-col gap-4">
-          <div className="font-headline-sm text-headline-sm text-primary">Bách Việt Cầm</div>
+          <div className="flex items-center gap-2 font-headline-sm text-headline-sm text-primary">
+            <Image src="/images/logo.png" alt="Bách Việt Cầm Logo" width={32} height={32} className="object-contain" />
+            Bách Việt Cầm
+          </div>
           <p className="font-body-md text-body-md text-secondary dark:text-secondary-fixed-dim">
             © 2026 Bách Việt Cầm. Di sản âm nhạc dân tộc trong kỷ nguyên số.
           </p>

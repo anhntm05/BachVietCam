@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const NAV_LINKS = [
   { label: 'Cách Hoạt Động', href: '#' },
@@ -52,7 +53,8 @@ export default function Header() {
       >
         <div className="w-full max-w-container-max mx-auto flex justify-between items-center">
           {/* Brand */}
-          <Link className="font-headline-sm text-headline-sm font-bold text-primary dark:text-primary-fixed-dim" href="/studio">
+          <Link className="flex items-center gap-2 font-headline-sm text-headline-sm font-bold text-primary dark:text-primary-fixed-dim" href="/studio">
+            <Image src="/images/logo.png" alt="Bách Việt Cầm Logo" width={32} height={32} className="object-contain" />
             Bách Việt Cầm
           </Link>
 
