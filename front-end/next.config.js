@@ -9,7 +9,7 @@ const nextConfig = {
     return [
       {
         // Moi request /api/* tu trinh duyet se duoc Next.js
-        // chuyen tiep sang Express. Nguoi dung chi thay cong 3000.
+        // chuyen tiep sang Express. Nguoi dung chi thay cong 3000 (hay cong tuong ung).
         source: '/api/:path*',
         destination: `${GATEWAY_URL}/api/:path*`,
       },

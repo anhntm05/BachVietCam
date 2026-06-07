@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Decorative Motif */
+.lacquer-motif {
+  background-image: radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.05) 0%, transparent 60%), 
+                    linear-gradient(45deg, transparent 48%, rgba(212, 175, 55, 0.03) 50%, transparent 52%);
+  background-size: 100% 100%, 20px 20px;
+}
+
+/* Custom Audio Wave Placeholder animation */
+@keyframes wave {
+  0%, 100% { height: 10%; }
+  50% { height: 100%; }
+}
+.wave-bar {
+  animation: wave 1.2s ease-in-out infinite;
+}
+.wave-bar:nth-child(even) { animation-delay: -0.6s; }
+.wave-bar:nth-child(3n) { animation-delay: -0.3s; }
+.wave-bar:nth-child(5n) { animation-delay: -0.9s; }
+
+/* Pulse animation for recording */
+@keyframes pulseGold {
+  0% { transform: scale(0.85); opacity: 0.7; box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.4); }
+  70% { transform: scale(1); opacity: 1; box-shadow: 0 0 0 8px rgba(212, 175, 55, 0); }
+  100% { transform: scale(0.85); opacity: 0.7; box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
+}
+.pulse-gold-dot {
+  animation: pulseGold 1.5s infinite;
+}
