@@ -8,7 +8,7 @@ export default function Footer() {
         {/* Brand / Copyright */}
         <div className="md:col-span-1 flex flex-col gap-4">
           <div className="flex items-center gap-2 font-headline-sm text-headline-sm text-primary">
-            <Image src="/images/logo.png" alt="Bách Việt Cầm Logo" width={32} height={32} className="object-contain" />
+            {/* <Image src="/images/logo.png" alt="Bách Việt Cầm Logo" width={32} height={32} className="object-contain" /> */}
             Bách Việt Cầm
           </div>
           <p className="font-body-md text-body-md text-secondary dark:text-secondary-fixed-dim">

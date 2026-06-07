@@ -31,14 +31,22 @@ export async function requestEvaluation(
   );
 
   try {
-    const res = await fetch(`${config.aiServiceUrl}/api/evaluate/`, {
+    const baseUrl = config.aiServiceUrl.replace(/\/+$/, '');
+    const res = await fetch(`${baseUrl}/api/evaluate/`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: body.toString(),
       signal: controller.signal,
     });
 
-    const data = await res.json();
+    const text = await res.text();
+    let data;
+    try {
+      data = JSON.parse(text);
+    } catch (e) {
+      throw new AiServiceError(`Django returned HTML instead of JSON. Status: ${res.status}. Body: ${text.substring(0, 150)}`, 502);
+    }
+
     if (!res.ok) {
       // Day nguyen thong bao loi cua Django len tren de de debug.
       const message = (data && data.error) || 'Loi khong xac dinh tu AI service';
@@ -95,14 +103,22 @@ export async function requestPairEvaluation(
   );
 
   try {
-    const res = await fetch(`${config.aiServiceUrl}/api/evaluate-pair/`, {
+    const baseUrl = config.aiServiceUrl.replace(/\/+$/, '');
+    const res = await fetch(`${baseUrl}/api/evaluate-pair/`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: body.toString(),
       signal: controller.signal,
     });
 
-    const data = await res.json();
+    const text = await res.text();
+    let data;
+    try {
+      data = JSON.parse(text);
+    } catch (e) {
+      throw new AiServiceError(`Django HTML Error. Status: ${res.status}. Output: ${text.substring(0, 150)}`, 502);
+    }
+
     if (!res.ok) {
       const message = (data && data.error) || 'Loi khong xac dinh tu AI service';
       throw new AiServiceError(message, res.status);

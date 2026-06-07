@@ -53,10 +53,10 @@ export default function Header() {
       >
         <div className="w-full max-w-container-max mx-auto flex justify-between items-center">
           {/* Brand */}
-          {/* <Link className="flex items-center gap-2 font-headline-sm text-headline-sm font-bold text-primary dark:text-primary-fixed-dim" href="/studio">
-            <Image src="/images/logo.png" alt="Bách Việt Cầm Logo" width={32} height={32} className="object-contain" />
+          <Link className="flex items-center gap-2 font-headline-sm text-headline-sm font-bold text-primary dark:text-primary-fixed-dim" href="/studio">
+            {/* <Image src="/images/logo.png" alt="Bách Việt Cầm Logo" width={32} height={32} className="object-contain" /> */}
             Bách Việt Cầm
-          </Link> */}
+          </Link>
 
           {/* Navigation Links (Desktop) */}
           <nav className="hidden md:flex items-center gap-8">
