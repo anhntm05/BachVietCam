@@ -12,7 +12,8 @@ export SHARED_STORAGE_DIR="/app/shared_storage"
 
 # Numba (used by librosa) is very CPU intensive on first run. Limit threads to prevent memory spikes.
 export NUMBA_NUM_THREADS=1
-export NUMBA_CACHE_DIR=/tmp/numba_cache
+export NUMBA_CACHE_DIR=/app/shared_storage/numba_cache
+mkdir -p $NUMBA_CACHE_DIR
 
 echo "Starting Django AI Service internally on port 8000..."
 cd /app/ai-service

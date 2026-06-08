@@ -30,3 +30,45 @@
 .pulse-gold-dot {
   animation: pulseGold 1.5s infinite;
 }
+
+/* Dan Bau Specific Styles */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+.bento-border {
+  border: 1px solid rgba(254, 166, 25, 0.2);
+}
+.lacquer-pattern {
+  background-image: radial-gradient(circle at 2px 2px, rgba(137, 80, 51, 0.05) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+.gold-shimmer {
+  background: linear-gradient(135deg, #d4af37 0%, #e9c349 50%, #d4af37 100%);
+  background-size: 200% auto;
+  transition: 0.5s;
+}
+.gold-shimmer:hover {
+  background-position: right center;
+}
+
+/* Smooth scrolling */
+html { scroll-behavior: smooth; }
+
+/* Custom scrollbar for chronicle */
+.chronicle-scroll::-webkit-scrollbar {
+  width: 4px;
+}
+.chronicle-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+.chronicle-scroll::-webkit-scrollbar-thumb {
+  background: #d4af37;
+  border-radius: 10px;
+}
+
+/* Perspective Carousel */
+.carousel-perspective {
+  perspective: 1200px;
+}
