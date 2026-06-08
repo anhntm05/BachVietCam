@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  scroll-behavior: smooth;
+}
+
 /* Decorative Motif */
 .lacquer-motif {
   background-image: radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.05) 0%, transparent 60%), 
@@ -71,4 +75,78 @@ html { scroll-behavior: smooth; }
 /* Perspective Carousel */
 .carousel-perspective {
   perspective: 1200px;
+}
+
+/* Dan Nhi Specific Styles */
+.section-divider {
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #d4af37, transparent);
+  width: 100px;
+  margin: 1rem auto;
+}
+.hero-gradient {
+  background: linear-gradient(135deg, #f9f9f8 0%, #eeeeed 100%);
+}
+.gold-bullet {
+  width: 12px;
+  height: 12px;
+  background-color: #d4af37;
+  border-radius: 50%;
+  margin-right: 1.5rem;
+  flex-shrink: 0;
+  position: relative;
+}
+.gold-bullet::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 24px;
+  height: 24px;
+  border: 1px solid #d4af37;
+  border-radius: 50%;
+  opacity: 0.3;
+}
+.vertical-line {
+  position: absolute;
+  left: 5px;
+  top: 12px;
+  bottom: -32px;
+  width: 2px;
+  background: #d4af37;
+  opacity: 0.2;
+}
+.last-item .vertical-line {
+  display: none;
+}
+
+/* General Instruments Page Styles */
+.text-gold-shimmer {
+  background: linear-gradient(135deg, #d4af37 0%, #f1d279 50%, #d4af37 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.bento-panel {
+  background-color: #FFFBEB;
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.38);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-top: 2px solid #D4AF37;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
 }

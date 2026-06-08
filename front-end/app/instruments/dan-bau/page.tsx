@@ -1,5 +1,8 @@
 import React from 'react';
 import Link from 'next/link';
+import BackButton from '@/components/ui/BackButton';
+import GenresCarousel from '@/components/features/dan-bau/GenresCarousel';
+import InstrumentCTA from '@/components/features/instruments/InstrumentCTA';
 
 export default function DanBauPage() {
   return (
@@ -7,7 +10,8 @@ export default function DanBauPage() {
       {/* Sovereign Hero */}
       <section className="px-margin-desktop py-12 max-w-container-max mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-gutter items-center min-h-[60vh]">
-          <div className="md:col-span-5 flex flex-col justify-center space-y-6 z-10">
+          <div className="md:col-span-5 flex flex-col justify-center space-y-6 z-10 mt-8 md:mt-0">
+            <BackButton />
             <div className="flex items-center gap-3">
               <div className="h-px w-12 bg-primary-container"></div>
               <span className="font-label-sm text-label-sm text-secondary tracking-widest uppercase">Nhạc Cụ Dân Tộc</span>
@@ -162,73 +166,14 @@ export default function DanBauPage() {
       </section>
 
       {/* Section 4: Traditional Art Forms (Thể loại nghệ thuật) */}
-      <section className="px-margin-desktop py-20 max-w-container-max mx-auto overflow-visible">
-        <div className="text-center mb-16">
-          <h3 className="font-headline-md text-headline-md text-on-surface mb-4">Hồn Nhạc Trong Từng Thể Loại</h3>
-          <p className="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">Từ chiếu xẩm dân gian đến sân khấu giao hưởng hiện đại, Đàn Bầu luôn giữ vai trò là "linh hồn" của bản nhạc.</p>
-        </div>
-        {/* Carousel Container */}
-        <div className="carousel-perspective relative h-[500px] flex items-center justify-center">
-          <div className="flex items-center justify-center w-full max-w-5xl relative gap-0 md:gap-4 h-full">
-            {/* Left Card: Hát Xẩm */}
-            <div className="absolute left-0 md:relative w-[280px] md:w-1/3 h-[380px] z-10 transform-gpu rotate-y-[25deg] scale-90 opacity-60 hover:opacity-100 transition-all duration-500 cursor-pointer origin-left">
-              <div className="group relative overflow-hidden rounded-2xl h-full shadow-lg bento-border">
-                <img alt="Hát Xẩm" className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-dMZD0Yp06itAbnpJ52SbJMLltBYZZYPSkBb5FhaStMX0DldqobU_xnqrHP66NLMncsTyMKKM9rNY06nGzYR5dDrnuywDiZ15SepPA88Q-oh31yJ_nvyTGfz-SwPRDVXQs3DcWs7ssTdB_yDyVYb1v1jp6UHH4lhefv3tCKAASOLq0H2opYz2gB3ed7xyxxA60QJ8wnIpsSVexVcOFiNBSi6GINazGDhaUxzdSgU-qedpLst6__AMC1XcuInwVx9GJYMubQoUZm_v" />
-                <div className="absolute inset-0 bg-gradient-to-t from-on-surface/90 via-on-surface/20 to-transparent p-6 flex flex-col justify-end">
-                  <h4 className="font-headline-sm text-white mb-2 text-lg">Hát Xẩm</h4>
-                  <p className="text-white/80 text-xs font-body-md line-clamp-3">Gắn liền với đời sống người dân lao động, tiếng Đàn Bầu trong Xẩm mang nét mộc mạc, kể chuyện đời đầy thăng trầm.</p>
-                </div>
-              </div>
-            </div>
-            {/* Center Card: Cải Lương (Largest) */}
-            <div className="z-30 w-[320px] md:w-2/5 h-[460px] transform-gpu scale-100 transition-all duration-500">
-              <div className="group relative overflow-hidden rounded-2xl h-full shadow-2xl border-2 border-primary-container/40 shadow-primary-container/20">
-                <img alt="Ca Trù" className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUs2lyWbtqC2Us9EmItTK9S-eX15siGqVfmqIPHfFFI6PjXdHkodfRaDkZpIqmzO__wpflrClaoLsp89Xq_dm9SaVpSkdUssdMZUUHLf0SVUuYOoVxkaPx1HYiTgzpGl6areZvnmqgEwxVo9h25ga_yGYsuWkPs38brFE2tTLwoNbepBmHYW8I9PrS12qPjipXr1oKVgkZqZQ_zhH79jC4v8Re_0vEl1jjIND09YWALV9xKaOM6Q2hPek_K7csBzgpawYULlrAnNMh" />
-                <div className="absolute inset-0 bg-gradient-to-t from-on-surface/95 via-on-surface/10 to-transparent p-10 flex flex-col justify-end">
-                  <div className="bg-primary-container/20 backdrop-blur-sm self-start px-3 py-1 rounded-full mb-4 border border-primary-container/30">
-                    <span className="text-primary-fixed text-[10px] font-bold uppercase tracking-widest">Tiêu Điểm</span>
-                  </div>
-                  <h4 className="font-headline-sm text-white mb-3 text-2xl">Cải Lương</h4>
-                  <p className="text-white/90 text-sm font-body-md leading-relaxed">Trong không gian nghệ thuật bác học và sân khấu kịch hát, Đàn Bầu góp phần tạo nên những cao trào cảm xúc mãnh liệt.</p>
-                </div>
-              </div>
-            </div>
-            {/* Right Card: Hòa Tấu Đương Đại */}
-            <div className="absolute right-0 md:relative w-[280px] md:w-1/3 h-[380px] z-10 transform-gpu rotate-y-[-25deg] scale-90 opacity-60 hover:opacity-100 transition-all duration-500 cursor-pointer origin-right">
-              <div className="group relative overflow-hidden rounded-2xl h-full shadow-lg bento-border">
-                <div className="absolute inset-0 gold-shimmer opacity-10"></div>
-                <img alt="Hòa tấu hiện đại" className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC3XZukeR-Ntxc_7yzVT9A2P5-uKpkgrF8HYaqEdwhHW0mWzbQMDOCPfHTSwnuY3KfYp-f2N6fgY1vx2Flnar9wJzBu7VT95EWCz78K_-eh68jCiuO88fEku5CzO9WdmV_Fw2E42eVjjM71_gHCizeuLu159bef_xX9J8d1bmzs6yIS5VQWhj5WPjI1glT1RE0WE5vKLc0peoBQ76f8WDl9gMK3Nxs6V1tmwlCMixSOzHYwoVx0GvYh6q1kzmSSVFK0rsBDn0WJtgDw" />
-                <div className="absolute inset-0 bg-gradient-to-t from-on-surface/90 via-on-surface/20 to-transparent p-6 flex flex-col justify-end">
-                  <h4 className="font-headline-sm text-white mb-2 text-lg">Hòa Tấu Đương Đại</h4>
-                  <p className="text-white/80 text-xs font-body-md line-clamp-3">Khi kết hợp với dàn nhạc giao hưởng hoặc nhạc điện tử, Đàn Bầu mang đến một hơi thở mới đầy sang trọng và bí ẩn.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="absolute bottom-4 flex gap-3 items-center justify-center w-full">
-            <div className="w-2 h-2 rounded-full bg-primary-container/30"></div>
-            <div className="w-3 h-3 rounded-full bg-primary-container shadow-[0_0_8px_rgba(212,175,55,0.6)]"></div>
-            <div className="w-2 h-2 rounded-full bg-primary-container/30"></div>
-          </div>
-        </div>
-      </section>
+      <GenresCarousel />
 
       {/* Contextual Studio Bridge (CTA) */}
-      <section className="px-margin-desktop py-20 max-w-container-max mx-auto">
-        <div className="bg-surface-container-lowest rounded-2xl p-12 text-center relative overflow-hidden bento-border border-t-2 border-primary-container shadow-sm">
-          <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary-container to-transparent opacity-50"></div>
-          <div className="relative z-10 max-w-2xl mx-auto">
-            <h2 className="font-headline-md text-headline-md text-on-surface mb-4">Bắt Đầu Hành Trình Âm Nhạc</h2>
-            <p className="font-body-lg text-body-lg text-on-surface-variant mb-8">
-                Bước vào Studio kỹ thuật số để trải nghiệm gảy đàn Bầu tương tác và khám phá các kỹ thuật biểu diễn cơ bản.
-            </p>
-            <Link href="/studio?instrument=dan_bau" className="inline-flex items-center gap-2 bg-on-surface text-surface font-label-sm text-label-sm px-8 py-4 rounded-full hover:bg-primary-container hover:text-on-primary-container transition-colors duration-300">
-              <span className="">Khởi Hành Tập Luyện</span>
-              <span className="material-symbols-outlined">play_circle</span>
-            </Link>
-          </div>
-        </div>
-      </section>
+      <InstrumentCTA 
+        instrumentName="đàn Bầu"
+        instrumentId="dan_bau"
+        description="Bước vào Studio kỹ thuật số để trải nghiệm gảy đàn Bầu tương tác và khám phá các kỹ thuật biểu diễn cơ bản."
+      />
     </main>
   );
 }
