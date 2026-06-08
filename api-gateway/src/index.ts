@@ -6,7 +6,7 @@ import apiRouter from './routes';
 
 const app = express();
 
-app.use(cors({ origin: config.corsOrigin }));
+app.use(cors()); // Allow all origins for Vercel
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
