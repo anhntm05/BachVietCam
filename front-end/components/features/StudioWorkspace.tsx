@@ -236,7 +236,7 @@ export default function StudioWorkspace() {
                             >
                                 <span className="text-sm font-semibold text-on-background text-center">Tải lên bản thu chuẩn của giáo viên</span>
                                 <span className="text-xs text-on-surface-variant mt-1 text-center">MP3, WAV, WebM — tối đa 25MB</span>
-                                <input type="file" ref={teacherInputRef} onChange={handleTeacherChange} accept="audio/*" className="hidden" />
+                                <input type="file" ref={teacherInputRef} onChange={handleTeacherChange} accept="audio/*, .mp3, .wav, .m4a, .ogg, .flac" className="hidden" />
                             </div>
                         ) : (
                             <div className="flex items-center gap-4 bg-surface/50 p-3 rounded-lg border border-primary/5">
@@ -331,7 +331,7 @@ export default function StudioWorkspace() {
                                     >
                                         <span className="text-sm font-semibold text-on-background text-center">Tải lên bản thu của học viên</span>
                                         <span className="text-xs text-on-surface-variant mt-1 text-center">MP3, WAV, WebM — tối đa 25MB</span>
-                                        <input type="file" ref={studentInputRef} onChange={handleStudentChange} accept="audio/*" className="hidden" />
+                                        <input type="file" ref={studentInputRef} onChange={handleStudentChange} accept="audio/*, .mp3, .wav, .m4a, .ogg, .flac" className="hidden" />
                                     </div>
                                 ) : (
                                     <div className="flex items-center gap-4 bg-surface/50 p-3 rounded-lg border border-primary/5">
