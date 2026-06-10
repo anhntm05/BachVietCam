@@ -1,9 +1,9 @@
 import React from 'react';
-import HeroSection from '@/components/features/dan-nhi/HeroSection';
-import ChronicleSection from '@/components/features/dan-nhi/ChronicleSection';
-import ConstructionSection from '@/components/features/dan-nhi/ConstructionSection';
-import TechniqueSection from '@/components/features/dan-nhi/TechniqueSection';
-import GenresSection from '@/components/features/dan-nhi/GenresSection';
+import HeroSection from '@/components/features/instruments/dan-nhi/HeroSection';
+import ChronicleSection from '@/components/features/instruments/dan-nhi/ChronicleSection';
+import ConstructionSection from '@/components/features/instruments/dan-nhi/ConstructionSection';
+import TechniqueSection from '@/components/features/instruments/dan-nhi/TechniqueSection';
+import GenresSection from '@/components/features/instruments/dan-nhi/GenresSection';
 import InstrumentCTA from '@/components/features/instruments/InstrumentCTA';
 
 export default function DanNhiPage() {

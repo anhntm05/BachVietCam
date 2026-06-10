@@ -229,7 +229,7 @@ export default function StudioWorkspace() {
 
                         {!teacherFile ? (
                             <div
-                                className="flex-grow flex flex-col items-center justify-center border-2 border-dashed border-primary/30 rounded-lg p-4 cursor-pointer hover:bg-primary/5 transition-colors"
+                                className="flex-grow flex flex-col items-center justify-center border-2 border-dashed border-primary/30 rounded-lg py-3 px-4 cursor-pointer hover:bg-primary/5 transition-colors min-h-[80px]"
                                 onDragOver={(e) => e.preventDefault()}
                                 onDrop={handleTeacherDrop}
                                 onClick={() => teacherInputRef.current?.click()}
@@ -324,7 +324,7 @@ export default function StudioWorkspace() {
                             <div className="flex-grow flex flex-col justify-center">
                                 {!studentUploadedFile ? (
                                     <div
-                                        className="flex-grow flex flex-col items-center justify-center border-2 border-dashed border-primary/30 rounded-lg p-4 cursor-pointer hover:bg-primary/5 transition-colors min-h-[100px]"
+                                        className="flex-grow flex flex-col items-center justify-center border-2 border-dashed border-primary/30 rounded-lg py-3 px-4 cursor-pointer hover:bg-primary/5 transition-colors min-h-[80px]"
                                         onDragOver={(e) => e.preventDefault()}
                                         onDrop={handleStudentDrop}
                                         onClick={() => studentInputRef.current?.click()}
