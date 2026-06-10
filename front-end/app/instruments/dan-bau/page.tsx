@@ -1,8 +1,8 @@
 import React from 'react';
 import Link from 'next/link';
 import BackButton from '@/components/ui/BackButton';
-import GenresCarousel, { Genre } from '@/components/features/instruments/GenresCarousel';
-import InstrumentCTA from '@/components/features/instruments/InstrumentCTA';
+import GenresCarousel, { Genre } from '@/components/features/instruments/general/GenresCarousel';
+import InstrumentCTA from '@/components/features/instruments/general/InstrumentCTA';
 
 const DAN_BAU_GENRES: Genre[] = [
   {
@@ -45,20 +45,20 @@ export default function DanBauPage() {
               <div className="absolute -left-4 top-0 w-1 h-full bg-primary-container/40 rounded-full"></div>
             </div>
             <p className="font-body-lg text-body-lg text-on-surface-variant leading-relaxed max-w-md">
-                Một dây mang cả âm hưởng hồn dân tộc. Biểu tượng của sự giản đơn tinh tế trong kho tàng nghệ thuật âm nhạc truyền thống Việt Nam.
+              Một dây mang cả âm hưởng hồn dân tộc. Biểu tượng của sự giản đơn tinh tế trong kho tàng nghệ thuật âm nhạc truyền thống Việt Nam.
             </p>
           </div>
           <div className="md:col-span-7 relative h-[400px] md:h-[600px] w-full rounded-2xl overflow-hidden glass-panel border-t-2 border-primary-container shadow-sm group">
             <div className="absolute inset-0 bg-surface-container-low opacity-50 z-0"></div>
             <div className="absolute inset-0 z-10 lacquer-pattern mix-blend-multiply opacity-20"></div>
-            <img 
-            alt="Dan Bau instrument in warm studio lighting" 
-            className="w-full h-full object-cover object-center z-20 relative transition-transform duration-700 group-hover:scale-105" 
-            src="https://traveldaily.com.vn/wp-content/uploads/2020/09/dan-bau.jpg" />
+            <img
+              alt="Dan Bau instrument in warm studio lighting"
+              className="w-full h-full object-cover object-center z-20 relative transition-transform duration-700 group-hover:scale-105"
+              src="https://traveldaily.com.vn/wp-content/uploads/2020/09/dan-bau.jpg" />
           </div>
         </div>
       </section>
-      
+
       {/* Section 1: General Description & History */}
       <section className="px-margin-desktop py-20 max-w-container-max mx-auto bg-surface-container-low/30 rounded-3xl mb-12">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-gutter">
@@ -193,13 +193,13 @@ export default function DanBauPage() {
       </section>
 
       {/* Section 4: Traditional Art Forms (Thể loại nghệ thuật) */}
-      <GenresCarousel 
+      <GenresCarousel
         subtitle='Từ chiếu xẩm dân gian đến sân khấu giao hưởng hiện đại, Đàn Bầu luôn giữ vai trò là "linh hồn" của bản nhạc.'
-        genres={DAN_BAU_GENRES} 
+        genres={DAN_BAU_GENRES}
       />
 
       {/* Contextual Studio Bridge (CTA) */}
-      <InstrumentCTA 
+      <InstrumentCTA
         instrumentName="đàn Bầu"
         instrumentId="dan_bau"
         description="Bước vào Studio kỹ thuật số để trải nghiệm gảy đàn Bầu tương tác và khám phá các kỹ thuật biểu diễn cơ bản."

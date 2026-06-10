@@ -65,6 +65,13 @@ export default function Header() {
         <div className="w-full max-w-container-max mx-auto flex justify-between items-center">
           {/* Brand */}
           <Link className="flex items-center gap-2 font-headline-sm text-headline-sm font-bold text-primary dark:text-primary-fixed-dim" href="/studio">
+            {/* <Image 
+              src="/images/Artboard-2.png" 
+              alt="Bách Việt Cầm Logo" 
+              width={200} 
+              height={200} 
+              className="rounded-full object-cover" 
+            /> */}
             Bách Việt Cầm
           </Link>
 
