@@ -1,8 +1,8 @@
 import React from 'react';
-import InstrumentsHero from '@/components/features/instruments/InstrumentsHero';
-import InstrumentsDirectory from '@/components/features/instruments/InstrumentsDirectory';
-import InstrumentsShowcase from '@/components/features/instruments/InstrumentsShowcase';
-import InstrumentsCTA from '@/components/features/instruments/InstrumentsCTA';
+import InstrumentsHero from '@/components/features/instruments/general/InstrumentsHero';
+import InstrumentsDirectory from '@/components/features/instruments/general/InstrumentsDirectory';
+import InstrumentsShowcase from '@/components/features/instruments/general/InstrumentsShowcase';
+import InstrumentsCTA from '@/components/features/instruments/general/InstrumentsCTA';
 
 export const metadata = {
   title: 'Kho Tàng Nhạc Cụ - Bách Việt Cầm',

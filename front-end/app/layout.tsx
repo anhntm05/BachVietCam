@@ -29,7 +29,7 @@ export default function RootLayout({
         
         {/* Watermark Overlay */}
         <div 
-          className="fixed inset-0 pointer-events-none z-[0] opacity-25 bg-center bg-no-repeat bg-[length:100%_auto]" 
+          className="fixed inset-0 pointer-events-none z-[0] opacity-20 bg-center bg-no-repeat bg-[length:100%_auto]" 
           style={{ backgroundImage: 'url("/images/Artboard-2.png")' }}
         ></div>
 

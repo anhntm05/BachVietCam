@@ -1,5 +1,5 @@
 import React from 'react';
-import StudioWorkspace from '@/components/features/StudioWorkspace';
+import StudioWorkspace from '@/components/features/studio/StudioWorkspace';
 
 export default function StudioPage() {
   return (
