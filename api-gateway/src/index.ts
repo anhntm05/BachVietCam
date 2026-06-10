@@ -35,7 +35,7 @@ app.use(
 );
 
 app.listen(config.port, () => {
-  console.log(`API Gateway dang chay tai cong ${config.port}`);
+  console.log(`API Gateway dang chay tai port ${config.port}`);
   console.log(`AI service: ${config.aiServiceUrl}`);
   console.log(`Shared storage: ${config.sharedStoragePath}`);
 });

@@ -31,8 +31,8 @@ export const config = {
   // Gioi han kich thuoc file ghi am.
   maxUploadBytes: 25 * 1024 * 1024,
 
-  // Timeout khi goi sang Django. pYIN cham nen de rong rai.
-  aiRequestTimeoutMs: parseInt(process.env.AI_TIMEOUT_MS ?? '120000', 10),
+  // Timeout khi goi sang Django. pYIN cham nen de rong rai (5 phut).
+  aiRequestTimeoutMs: parseInt(process.env.AI_TIMEOUT_MS ?? '300000', 10),
 
   // CORS Origin cho phep frontend goi api. Split bang dau phay neu co nhieu domain.
   corsOrigin: process.env.CORS_ORIGIN === '*' ? '*' : (process.env.CORS_ORIGIN ? process.env.CORS_ORIGIN.split(',') : 'http://localhost:3000'),
