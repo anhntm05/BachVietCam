@@ -24,10 +24,10 @@ export default function Footer() {
           <a className="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary-container transition-colors opacity-80 hover:opacity-100" href="#">
             Điều khoản sử dụng
           </a>
-          <a className="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary-container transition-colors opacity-80 hover:opacity-100" href="#">
+          <a className="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary-container transition-colors opacity-80 hover:opacity-100" href="/doanh-nghiep#contact">
             Liên hệ hợp tác
           </a>
-          <a className="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary-container transition-colors opacity-80 hover:opacity-100" href="#">
+          <a className="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary-container transition-colors opacity-80 hover:opacity-100" href="/doanh-nghiep#team">
             Về chúng tôi
           </a>
         </div>

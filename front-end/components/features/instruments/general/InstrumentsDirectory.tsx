@@ -10,7 +10,7 @@ const INSTRUMENTS_DATA = [
     category: 'string',
     categoryLabel: 'Bộ Dây',
     desc: '"Tiếng đàn bầu, cung thanh là tiếng mẹ, cung trầm là giọng cha." Nhạc cụ độc huyền với âm sắc u huyền và sâu lắng bậc nhất tâm hồn Việt.',
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAzZpSDchV6yWME8ZpH-WEDAZ2m-krTl1tDGhx4vMTMj1ACRxn8X3X24fdVPYKp3bSiVjaxvz7UhN0TalcmR93754SFGDNdKveUGHJOZIH0E0a_EqohZgm3oKexSz1JCmE3N5ICwiW7UFGgW2W_bg6SFN2J8VLc_Qy_Un9hk6EbsOa873Uwk8qDiVwU0BN3syoBojoCA1mUfLrT7aI48Q5GhQz9XvkKZrPz5DRz44JIbaMmQn2ohZTHm21vTyjr9NAlpP0b-7UKYEK9',
+    image: 'https://traveldaily.com.vn/wp-content/uploads/2020/09/dan-bau.jpg',
     altText: 'Đàn Bầu',
   },
   {
@@ -19,7 +19,7 @@ const INSTRUMENTS_DATA = [
     category: 'string',
     categoryLabel: 'Bộ Dây',
     desc: 'Cây vĩ cầm của Á Đông, sở hữu âm sắc biểu cảm tương tự giọng hát con người. Từ tiếng than vãn nỉ non đến những giai điệu rộn rã đón xuân.',
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAR_x8zZLrKkY-hOZakmUznaIqDQxwD1b9exSYWG0BEshLfevNyFa5rHVWD0zHtVm0qXe2b2_uFgGk9LKJCO0ZcYQVOrWzDFRYiHAUCFX9ESAfDp7GhGKO6MVNW__Y9dy36-KLaccvnF_Etaq2eA5ZD6qhAHGnws_z_u7Eou-6rn9AA40erqQAV72lq2pX7Vvt4OR5VIB_YWCNf3KHgmQHTo8US1DeNfwJLRGU9USLJ4EG12dCl_stn_dPEIFMDJLug0w1GjAwLjQHt',
+    image: 'https://scontent.fhan18-1.fna.fbcdn.net/v/t39.30808-6/615342957_2754369714926791_3833441697048156022_n.jpg?stp=dst-jpg_tt6&cstp=mx1284x1752&ctp=s1284x1752&_nc_cat=104&ccb=1-7&_nc_sid=f727a1&_nc_eui2=AeED7ZT5QR3VV-bIBmWUUjsV84ekRHMQIo_zh6REcxAij2kWQpxDCp4nr998gFJVaT7KHNLjSr3ilTXg5wSfh-xF&_nc_ohc=wDNNr2yif74Q7kNvwFynbXW&_nc_oc=Adp0lE53dto0_wCH6EknQjiATqo3Si7ZYKZDlcCMsdcm6hIJSBei1qWWQgagmXuo7lFbI0IHnUflcCy2Oiy4mV2i&_nc_zt=23&_nc_ht=scontent.fhan18-1.fna&_nc_gid=z6ToscIPcegv1kAd4xraUQ&_nc_ss=7b2a8&oh=00_Af-d8_FUZHkxO7eVJLLhxI64jDE817OsIPbJEy2Nf8fLYw&oe=6A2C040E',
     altText: 'Đàn Nhị',
   },
   {
@@ -28,8 +28,8 @@ const INSTRUMENTS_DATA = [
     category: 'string',
     categoryLabel: 'Bộ Dây',
     desc: 'Sự kết hợp hoàn hảo giữa kỹ thuật gảy điêu luyện và âm sắc lanh lảnh như tiếng suối reo. Một biểu tượng của sự thanh cao và quý tộc.',
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAFUE_RwN1WSNU1AMbcolO6xHjk4Y-ihi_FF3o1RIme7RIMPxvrYZ4OWXoMpUfDHW2wiMmtXczsehUINC61fTJKIylGzKvw0K7yZmoVQSrrZsfsjOLaMr79w6cGFrBElaxSCk8SxBM_G6wznrpUnbJiaHZGezMC48qBdCVAVubfLQuvQCLHrUdgiA33NMpndHbz1lvwaC6o5pfy1hwrcJUCH4DrfdWRLcD6bLgGCBS-U8fHPOEP3N-SDHBQyRVuqfiYTuWUnO9K_1iz',
-    altText: 'Professional artistic studio photography of a Vietnamese Dan Tranh (zither), 17 strings, wooden body with mother-of-pearl inlay, cinematic lighting, warm lacquer tones, museum quality.',
+    image: 'https://lh3.googleusercontent.com/aida/AP1WRLvxbN8V_WnpwWKH5RuZnZuPkK5IeWQonjvc03kW6k06-m1lI1juSSYZvvdR-WpNz8yDJHNZe5B9T1_3jldW5oxZSDBKupo5mQycM3WRIgHLa2f6V4QWoH_aqFDFNFreN-83EsfEnp6G16SbB272w7M_jKDDuS53FWB4oRW1qW_VLn0M3LtdmluV6LVpAqKcEnJg4Lp17IPIN1Um50t0o8TTc87SMcugF0QuMmerUDzpE_6KbDumamOJ2TA',
+    altText: 'Đàn Tranh',
   },
   {
     id: 'sao-truc',
@@ -37,8 +37,8 @@ const INSTRUMENTS_DATA = [
     category: 'wind',
     categoryLabel: 'Bộ Hơi',
     desc: 'Hơi thở của đồng nội, thanh âm của gió ngàn. Mang trong mình linh hồn của làng quê Việt Nam qua hàng ngàn năm lịch sử.',
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuApm-h7cDVLptW74r4LiAyBXMBQa5dMy4yb2OnSfxv-YOl2RMm0wIC43qHdNLDjJINyCL9LKAIT2Nc1yu89gbHVdtSxQuqx5wrQh2IYKaD2LDvIa_La7p4O8aXcaK4BUI-g3TqrWRlxsfbSP4x2ingbLi4QbQUY8q_DAsKNf87aLlKf6VHi1KcYNb81Q78quhYhDAAMfO66_pK3AINz1HJmNo9SX-bC4mkJektjxdVJhdU985KsSzgRxmULe6CWyr0jngxYIC-Ykmmc',
-    altText: 'Professional artistic studio photography of a Vietnamese Sao Truc (bamboo flute), natural aged bamboo texture, elegant holes, cinematic lighting, cultural heritage style.',
+    image: 'https://shopguitardanang.com/wp-content/uploads/2019/11/sao-tr%C3%BAc-1.jpg',
+    altText: 'Sáo Trúc',
   },
   {
     id: 'dan-nguyet',
@@ -46,8 +46,8 @@ const INSTRUMENTS_DATA = [
     category: 'string',
     categoryLabel: 'Bộ Dây',
     desc: 'Nhạc cụ hình trăng rằm, giữ vai trò quan trọng trong nhạc tài tử, chèo và chầu văn. Âm thanh tươi sáng, rộn ràng mà vẫn rất đỗi trang trọng.',
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAo0EtMyHX-a-mw_EGS35EfEcNRX8IQpXh0qwSvsKg1U8BTf8GMMI1TYAXcXaMcXATZZ_0WPewL0uCR7UcDYDi6ClWC-b7jJwE--RoQQzXutWvMetudeDqESHkA4CL7dIYmgEtaqyT9t579i6Mawp3-sAOZ5iG_eohmwVRcvwWrDcee5pTbMzxP1CC4K_QHAqN2QhuQlC2zbyp7cgfnpnX01NwMO4Z1sjwzBEX0rZAHFL-wdJsgFxrjz6VQJlySvpCEOXH_ogH1PIUw',
-    altText: 'Professional artistic studio photography of a Vietnamese Dan Nguyet (moon-shaped lute), circular body, long neck, dark wood, cinematic lighting, elegant lacquer finish.',
+    image: 'https://lirp.cdn-website.com/46b951bd/dms3rep/multi/opt/maxresdefault%20(1)-1280x720-1920w.jpg',
+    altText: 'Đàn Nguyệt',
   },
   {
     id: 'dan-ty-ba',
@@ -55,8 +55,8 @@ const INSTRUMENTS_DATA = [
     category: 'string',
     categoryLabel: 'Bộ Dây',
     desc: 'Nhạc cụ hình quả lê, biểu tượng của vẻ đẹp cổ điển và quý phái. Thường xuất hiện trong các dàn nhạc cung đình và hòa tấu nghệ thuật cao.',
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAjt2poBb1rB99uRV0-tkNW9A7DyfjS36Ll0XhaOxtvb6AfaqQ1e3A3KbiodE06N0wg_GjleG0TKxq8Ms05xwqWbO217rFB-kaQesnIzAsBsWNmTydADbY57KfoPoGNYTVOkUncNfUKzcT3LXw3cbsFPAgnN8fdRr80WalcvJoDKYAFtlfiA8IFYiaduomRDu4TxlQZUq1imrrrwPgLysO3bJxIJdaxGl6XpsrYeWY9R93rfvQ1TVgRwkkOcZuG1-hH96RCjAfspYop',
-    altText: 'Professional artistic studio photography of a Vietnamese Dan Ti Ba (pear-shaped lute), four strings, intricate wood grain, cinematic lighting, traditional aesthetic.',
+    image: 'https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-ly1p0dnpdom1e7',
+    altText: 'Đàn Tì Bà',
   },
 ];
 
@@ -74,25 +74,25 @@ export default function InstrumentsDirectory() {
         <div className="flex flex-wrap justify-center gap-4">
           <button 
             onClick={() => setFilter('all')}
-            className={`px-8 py-3 rounded-xl font-label-sm text-label-sm flex items-center gap-2 transition-all duration-300 ${filter === 'all' ? 'glass-card bg-primary text-white' : 'bento-panel text-on-surface-variant hover:bg-white'}`}
+            className={`px-8 py-3 rounded-xl font-label-sm text-label-sm flex items-center gap-2 transition-all duration-300 ${filter === 'all' ? 'glass-card bg-primary-container text-on-primary-container font-bold' : 'bento-panel text-on-surface-variant hover:bg-white'}`}
           >
             <span className="material-symbols-outlined text-[18px]">music_note</span> TẤT CẢ
           </button>
           <button 
             onClick={() => setFilter('string')}
-            className={`px-8 py-3 rounded-xl font-label-sm text-label-sm flex items-center gap-2 transition-all duration-300 ${filter === 'string' ? 'glass-card bg-primary text-white' : 'bento-panel text-on-surface-variant hover:bg-white'}`}
+            className={`px-8 py-3 rounded-xl font-label-sm text-label-sm flex items-center gap-2 transition-all duration-300 ${filter === 'string' ? 'glass-card bg-primary-container text-on-primary-container font-bold' : 'bento-panel text-on-surface-variant hover:bg-white'}`}
           >
             <span className="material-symbols-outlined text-[18px]">line_weight</span> BỘ DÂY
           </button>
           <button 
             onClick={() => setFilter('wind')}
-            className={`px-8 py-3 rounded-xl font-label-sm text-label-sm flex items-center gap-2 transition-all duration-300 ${filter === 'wind' ? 'glass-card bg-primary text-white' : 'bento-panel text-on-surface-variant hover:bg-white'}`}
+            className={`px-8 py-3 rounded-xl font-label-sm text-label-sm flex items-center gap-2 transition-all duration-300 ${filter === 'wind' ? 'glass-card bg-primary-container text-on-primary-container font-bold' : 'bento-panel text-on-surface-variant hover:bg-white'}`}
           >
             <span className="material-symbols-outlined text-[18px]">air</span> BỘ HƠI
           </button>
           <button 
             onClick={() => setFilter('percussion')}
-            className={`px-8 py-3 rounded-xl font-label-sm text-label-sm flex items-center gap-2 transition-all duration-300 ${filter === 'percussion' ? 'glass-card bg-primary text-white' : 'bento-panel text-on-surface-variant hover:bg-white'}`}
+            className={`px-8 py-3 rounded-xl font-label-sm text-label-sm flex items-center gap-2 transition-all duration-300 ${filter === 'percussion' ? 'glass-card bg-primary-container text-on-primary-container font-bold' : 'bento-panel text-on-surface-variant hover:bg-white'}`}
           >
             <span className="material-symbols-outlined text-[18px]">layers</span> BỘ GÕ
           </button>
