@@ -17,9 +17,8 @@ const INSTRUMENTS = [
 const NAV_LINKS = [
   { label: 'Tập Luyện Với AI', href: '/studio' },
   { label: 'Tìm Hiểu', href: '/instruments', sublinks: INSTRUMENTS },
-  { label: 'Doanh Nghiệp', href: '#' },
-  { label: 'FAQ', href: '#' },
-  { label: 'Liên Hệ', href: '#' },
+  { label: 'Doanh Nghiệp', href: '/doanh-nghiep' },
+  { label: 'Liên Hệ', href: '/doanh-nghiep#contact' },
 ];
 
 export default function Header() {
@@ -65,13 +64,6 @@ export default function Header() {
         <div className="w-full max-w-container-max mx-auto flex justify-between items-center">
           {/* Brand */}
           <Link className="flex items-center gap-2 font-headline-sm text-headline-sm font-bold text-primary dark:text-primary-fixed-dim" href="/studio">
-            {/* <Image 
-              src="/images/Artboard-2.png" 
-              alt="Bách Việt Cầm Logo" 
-              width={200} 
-              height={200} 
-              className="rounded-full object-cover" 
-            /> */}
             Bách Việt Cầm
           </Link>
 

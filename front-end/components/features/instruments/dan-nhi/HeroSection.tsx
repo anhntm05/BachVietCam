@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import BackButton from '@/components/ui/BackButton';
+import InstrumentActionButtons from '@/components/features/instruments/general/InstrumentActionButtons';
 
 export default function HeroSection() {
   return (
@@ -15,15 +16,7 @@ export default function HeroSection() {
         <p className="font-body-lg text-body-lg text-on-surface-variant max-w-lg mb-10 leading-relaxed italic">
           "Tiếng đàn như tiếng tơ lòng, lúc nỉ non sầu thảm, lúc lại réo rắt vui tươi, len lỏi qua từng kẽ lá, chạm đến những miền cảm xúc thẳm sâu nhất của tâm hồn Việt."
         </p>
-        <div className="flex flex-wrap gap-5">
-          <Link href="/studio?instrument=dan_nhi" className="bg-primary text-on-primary px-8 py-4 rounded-full font-bold flex items-center gap-2 hover:shadow-lg transition-all">
-            Khám Phá Âm Sắc
-            <span className="material-symbols-outlined text-xl">play_arrow</span>
-          </Link>
-          <a href="#cau-tao" className="border-2 border-primary text-primary px-8 py-4 rounded-full font-bold hover:bg-primary/5 transition-all text-center inline-block">
-            Tìm Hiểu Cấu Tạo
-          </a>
-        </div>
+          <InstrumentActionButtons studioLink="/studio?instrument=dan_nhi" constructionLink="#cau-tao" />
       </div>
       <div className="w-full md:w-1/2 relative h-full md:h-[85vh]">
         <img
