@@ -2,9 +2,13 @@ import express from 'express';
 import multer from 'multer';
 import cors from 'cors';
 import { config } from './config/env';
+import { connectDB } from './config/db';
 import apiRouter from './routes';
 
 const app = express();
+
+// Connect to MongoDB
+connectDB();
 
 app.use(cors()); // Allow all origins for Vercel
 app.use(express.json());

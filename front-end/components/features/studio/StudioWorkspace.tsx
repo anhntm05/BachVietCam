@@ -4,6 +4,8 @@ import React, { useState, useRef, useEffect } from 'react';
 import EvaluationMetrics, { EvaluationResult } from './EvaluationMetrics';
 import { useAudio } from '@/hooks/useAudio';
 import { Waveform } from './Waveform';
+import Cookies from 'js-cookie';
+import LoginPopup from '@/components/ui/LoginPopup';
 
 
 const GATEWAY_URL =
@@ -27,6 +29,7 @@ export default function StudioWorkspace() {
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const [loading, setLoading] = useState(false);
     const [result, setResult] = useState<EvaluationResult | null>(null);
+    const [showLoginPopup, setShowLoginPopup] = useState(false);
 
     const evaluationRef = useRef<HTMLDivElement>(null);
 
@@ -91,6 +94,12 @@ export default function StudioWorkspace() {
     };
 
     const handleSubmit = async () => {
+        const token = Cookies.get('token');
+        if (!token) {
+            setShowLoginPopup(true);
+            return;
+        }
+
         if (!teacherFile) {
             alert('Vui lòng tải lên bản mẫu của giáo viên trước.');
             return;
@@ -162,6 +171,8 @@ export default function StudioWorkspace() {
 
     return (
         <section className="grid grid-cols-1 gap-gutter">
+            <LoginPopup isOpen={showLoginPopup} onClose={() => setShowLoginPopup(false)} />
+            
             {/* Top Section: Unified Practice Area */}
             <div className="bg-surface-container-low border border-primary/20 rounded-xl p-gutter flex flex-col gap-6">
 
