@@ -111,7 +111,7 @@ export default function EvaluationsPage() {
                     return (
                       <tr 
                         key={evalItem._id} 
-                        className={`transition-colors cursor-pointer group ${isSelected ? 'bg-primary-container/10' : 'hover:bg-primary-container/5'}`}
+                        className={`transition-all cursor-pointer border-l-4 group ${isSelected ? 'bg-primary/10 border-primary' : 'border-transparent hover:bg-surface-variant/30'}`}
                         onClick={() => setSelectedEval(evalItem)}
                       >
                         <td className="px-6 py-4 font-body-md text-body-md text-on-surface">
@@ -132,7 +132,7 @@ export default function EvaluationsPage() {
                           </span>
                         </td>
                         <td className="px-6 py-4">
-                          <button className={`w-10 h-10 rounded-full flex items-center justify-center transition-all shadow-sm ${isSelected ? 'bg-primary text-white' : 'bg-surface-container border border-outline-variant/30 text-primary hover:bg-primary-container hover:text-white'}`}>
+                          <button className={`w-10 h-10 rounded-full flex items-center justify-center transition-all shadow-sm ${isSelected ? 'bg-primary text-white' : 'bg-surface-container border border-outline-variant/30 text-primary group-hover:bg-primary/10 hover:bg-primary hover:text-white'}`}>
                             <span className="material-symbols-outlined">{isSelected ? 'pause' : 'play_arrow'}</span>
                           </button>
                         </td>
