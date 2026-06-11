@@ -4,7 +4,7 @@ export interface IActivity extends Document {
   action: string;
   user: string;
   instrument?: string;
-  status: string;
+  score: number;
   time: string;
   icon: string;
   createdAt: Date;
@@ -14,7 +14,7 @@ const ActivitySchema: Schema = new Schema({
   action: { type: String, required: true },
   user: { type: String, required: true },
   instrument: { type: String },
-  status: { type: String, required: true },
+  score: { type: Number, required: true },
   time: { type: String, required: true },
   icon: { type: String, required: true },
   createdAt: { type: Date, default: Date.now },

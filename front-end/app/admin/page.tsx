@@ -143,7 +143,7 @@ export default function DashboardPage() {
     <div className="p-8 max-w-[1400px] mx-auto w-full space-y-8 flex-1">
       {/* Welcome Section */}
       <section>
-        <h2 className="font-headline-md text-headline-md text-primary mb-1">Tinh Hoa Việt Canvas</h2>
+        <h2 className="font-headline-md text-headline-md text-primary mb-1">Bách Việt Cầm Canvas</h2>
         <p className="font-body-md text-body-md text-on-surface-variant">Welcome back to the Cultural Digital Atelier.</p>
       </section>
 

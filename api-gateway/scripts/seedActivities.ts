@@ -20,41 +20,41 @@ const seedActivities = async () => {
         action: 'AI Evaluation',
         user: 'Hoàng Anh',
         instrument: 'Đàn Tranh',
-        status: 'EXCELLENT',
+        score: 95,
         time: '2 mins ago',
         icon: 'mic'
       },
       {
-        action: 'New Registration',
+        action: 'AI Evaluation',
         user: 'Linh Đặng',
         instrument: 'Đàn Bầu',
-        status: 'VERIFIED',
+        score: 88,
         time: '15 mins ago',
-        icon: 'person_add'
+        icon: 'mic'
       },
       {
-        action: 'Content Update',
+        action: 'AI Evaluation',
         user: 'Admin Việt',
         instrument: 'Sáo Trúc',
-        status: 'DRAFT',
+        score: 42,
         time: '42 mins ago',
-        icon: 'edit'
+        icon: 'mic'
       },
       {
         action: 'AI Evaluation',
         user: 'Minh Tuấn',
         instrument: 'Đàn Tỳ Bà',
-        status: 'GOOD',
+        score: 75,
         time: '1 hour ago',
         icon: 'mic'
       },
       {
-        action: 'System Warning',
+        action: 'AI Evaluation',
         user: 'System',
-        instrument: 'N/A',
-        status: 'LOW DISK',
+        instrument: 'Đàn Nhị',
+        score: 60,
         time: '3 hours ago',
-        icon: 'error'
+        icon: 'mic'
       }
     ];
 

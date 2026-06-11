@@ -41,6 +41,21 @@ export async function evaluatePairController(req: Request, res: Response) {
       studentFile.path,
       instrumentId
     );
+
+    try {
+      const { Activity } = await import('../models/Activity');
+      await Activity.create({
+        action: 'AI Evaluation (Pair)',
+        user: req.body.user || 'Guest',
+        instrument: instrumentId,
+        score: Math.round(result.pitch_accuracy_percent || 0),
+        time: 'Vừa xong',
+        icon: 'mic'
+      });
+    } catch (dbErr) {
+      console.error('Failed to log activity:', dbErr);
+    }
+
     return res.status(200).json(result);
   } catch (err) {
     if (err instanceof AiServiceError) {

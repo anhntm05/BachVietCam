@@ -16,7 +16,7 @@ export default function AdminLayout({
     <div className="bg-background font-body-md text-on-surface flex min-h-screen">
       <Sidebar />
       <div className="flex-1 ml-64 flex flex-col relative">
-        <TopNav />
+        {/* <TopNav /> */}
         {children}
       </div>
     </div>
