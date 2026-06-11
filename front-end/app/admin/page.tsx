@@ -8,7 +8,7 @@ interface DashboardMetrics {
   totalUsers: number;
   newUsers: number;
   evaluationsDone: number;
-  storageUsedGB: number;
+  storageUsedMB: number;
 }
 
 interface Activity {
@@ -26,7 +26,7 @@ export default function DashboardPage() {
     totalUsers: 0,
     newUsers: 0,
     evaluationsDone: 0,
-    storageUsedGB: 42.8,
+    storageUsedMB: 200,
   });
   const [activities, setActivities] = useState<Activity[]>([]);
   const [loading, setLoading] = useState(true);
@@ -185,7 +185,7 @@ export default function DashboardPage() {
             <span className="text-amber-600 font-label-sm">84%</span>
           </div>
           <p className="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Storage Used</p>
-          <p className="font-headline-sm text-headline-sm mt-1">{metrics.storageUsedGB} GB</p>
+          <p className="font-headline-sm text-headline-sm mt-1">{loading ? '...' : `${metrics.storageUsedMB} MB`}</p>
         </div>
       </section>
 
