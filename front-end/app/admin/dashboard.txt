@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Bách Việt Cầm Admin Dashboard</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&amp;family=Be+Vietnam+Pro:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+                  "inverse-surface": "#2f3130",
+                  "on-tertiary-container": "#6b371d",
+                  "on-primary": "#ffffff",
+                  "inverse-on-surface": "#f1f1f0",
+                  "on-tertiary-fixed-variant": "#6d391e",
+                  "surface-container-lowest": "#ffffff",
+                  "on-primary-fixed": "#241a00",
+                  "tertiary-fixed": "#ffdbcc",
+                  "secondary-fixed-dim": "#ffb95f",
+                  "on-primary-container": "#554300",
+                  "background": "#f9f9f8",
+                  "tertiary-container": "#eba280",
+                  "on-secondary-fixed-variant": "#653e00",
+                  "on-secondary-fixed": "#2a1700",
+                  "tertiary-fixed-dim": "#ffb694",
+                  "tertiary": "#895033",
+                  "on-surface-variant": "#4d4635",
+                  "on-tertiary-fixed": "#351000",
+                  "on-tertiary": "#ffffff",
+                  "inverse-primary": "#e9c349",
+                  "surface-container": "#eeeeed",
+                  "primary-container": "#d4af37",
+                  "primary": "#735c00",
+                  "on-surface": "#1a1c1c",
+                  "surface-container-highest": "#e2e2e2",
+                  "surface-bright": "#f9f9f8",
+                  "on-secondary": "#ffffff",
+                  "surface-dim": "#dadad9",
+                  "surface-container-high": "#e8e8e7",
+                  "primary-fixed": "#ffe088",
+                  "on-error-container": "#93000a",
+                  "on-secondary-container": "#684000",
+                  "on-primary-fixed-variant": "#574500",
+                  "on-background": "#1a1c1c",
+                  "on-error": "#ffffff",
+                  "surface": "#f9f9f8",
+                  "error-container": "#ffdad6",
+                  "error": "#ba1a1a",
+                  "surface-tint": "#735c00",
+                  "secondary-fixed": "#ffddb8",
+                  "outline-variant": "#d0c5af",
+                  "secondary": "#855300",
+                  "surface-container-low": "#f4f4f3",
+                  "primary-fixed-dim": "#e9c349",
+                  "secondary-container": "#fea619",
+                  "outline": "#7f7663"
+          },
+          "borderRadius": {
+                  "DEFAULT": "0.25rem",
+                  "lg": "0.5rem",
+                  "xl": "0.75rem",
+                  "full": "9999px"
+          },
+          "spacing": {
+                  "unit": "8px",
+                  "margin-desktop": "64px",
+                  "container-max": "1280px",
+                  "margin-mobile": "20px",
+                  "gutter": "24px"
+          },
+          "fontFamily": {
+                  "headline-sm": ["Playfair Display"],
+                  "display-lg": ["Playfair Display"],
+                  "label-sm": ["Be Vietnam Pro"],
+                  "body-lg": ["Be Vietnam Pro"],
+                  "headline-md": ["Playfair Display"],
+                  "display-lg-mobile": ["Playfair Display"],
+                  "body-md": ["Be Vietnam Pro"]
+          },
+          "fontSize": {
+                  "headline-sm": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                  "display-lg": ["56px", {"lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                  "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                  "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                  "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                  "display-lg-mobile": ["40px", {"lineHeight": "48px", "fontWeight": "700"}],
+                  "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .glass-card {
+      background: #FFFBEB;
+      border: 1px solid rgba(212, 175, 55, 0.2);
+    }
+    .glass-interactive {
+      background: rgba(255, 255, 255, 0.38);
+      backdrop-filter: blur(20px);
+      border-top: 2px solid #d4af37;
+    }
+    .lotus-bg {
+      background-image: radial-gradient(circle at 2px 2px, rgba(212, 175, 55, 0.05) 1px, transparent 0);
+      background-size: 24px 24px;
+    }
+    .lacquer-overlay {
+      position: absolute;
+      inset: 0;
+      opacity: 0.03;
+      pointer-events: none;
+      background-image: url('https://www.transparenttextures.com/patterns/cubes.png'); /* Simulating texture */
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+</head>
+<body class="bg-background font-body-md text-on-surface lotus-bg overflow-x-hidden">
+<!-- SideNavBar Anchor -->
+<aside class="bg-surface-container-low dark:bg-inverse-surface border-r border-outline-variant/20 dark:border-outline-variant/10 h-screen w-64 fixed left-0 top-0 flex flex-col z-50 transition-all duration-300">
+<div class="px-6 py-8 flex flex-col gap-1">
+<h1 class="font-headline-sm text-headline-sm font-bold text-primary dark:text-primary-fixed-dim">Bách Việt Cầm</h1>
+<p class="font-label-sm text-label-sm text-on-surface-variant opacity-70">Cultural Atelier Admin</p>
+</div>
+<nav class="flex-1 mt-4">
+<ul class="space-y-1">
+<!-- Dashboard (Active) -->
+<li>
+<a class="text-primary dark:text-primary-fixed-dim font-bold border-l-4 border-primary flex items-center gap-3 px-6 py-4 bg-primary-container/10 hover:bg-surface-container-high dark:hover:bg-surface-variant transition-all scale-[0.98]" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label-sm text-label-sm">Dashboard</span>
+<span class="material-symbols-outlined ml-auto text-[10px]" style="font-variation-settings: 'FILL' 1;">eco</span>
+</a>
+</li>
+<!-- Users -->
+<li>
+<a class="text-on-surface-variant dark:text-surface-variant flex items-center gap-3 px-6 py-4 hover:bg-surface-container-high dark:hover:bg-surface-variant transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="font-label-sm text-label-sm">Users</span>
+</a>
+</li>
+<!-- Instruments -->
+<li>
+<a class="text-on-surface-variant dark:text-surface-variant flex items-center gap-3 px-6 py-4 hover:bg-surface-container-high dark:hover:bg-surface-variant transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="music_note">music_note</span>
+<span class="font-label-sm text-label-sm">Instruments</span>
+</a>
+</li>
+<!-- AI Evaluations -->
+<li>
+<a class="text-on-surface-variant dark:text-surface-variant flex items-center gap-3 px-6 py-4 hover:bg-surface-container-high dark:hover:bg-surface-variant transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="psychology">psychology</span>
+<span class="font-label-sm text-label-sm">AI Evaluations</span>
+</a>
+</li>
+<!-- Settings -->
+<li>
+<a class="text-on-surface-variant dark:text-surface-variant flex items-center gap-3 px-6 py-4 hover:bg-surface-container-high dark:hover:bg-surface-variant transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-label-sm text-label-sm">Settings</span>
+</a>
+</li>
+</ul>
+</nav>
+<div class="p-6 mt-auto">
+<div class="flex items-center gap-3 p-3 glass-card rounded-xl">
+<img alt="Admin Profile" class="w-10 h-10 rounded-full border border-primary-container object-cover" data-alt="A portrait of a sophisticated Vietnamese male administrator in a clean, high-end studio setting. He wears a contemporary minimalist outfit that hints at cultural prestige. The lighting is soft and professional, emphasizing a modern light-mode aesthetic with warm gold accents in the background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEMqxVqEE6vttzPbfbciarx62yc_tvG__gR-2n9X4QXBauzojY1jKYPg7uNdxEiEET8VuHxgMLTQ-ffbpZQkmsf3xX4W9kc0SctXKeDPDnl5w5zgxn60LXS2VbykaawrUxf6RsPmr0jCxn0_cQvlLN_sqxnICFkhADYifQsb5QD9aMGT0ZYQFDiHdqIFkXhTVnPg25r6Ar2MZO24dCnGz5rlOaNQlEXFT6Rb0G2Z3B7Y_xQZzeIy8vpOv1nX4Sr0iNMCqm9lzDFw4C"/>
+<div>
+<p class="font-label-sm text-label-sm text-on-surface font-bold">Admin Việt</p>
+<p class="text-[10px] text-on-surface-variant">Senior Curator</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Wrapper -->
+<main class="ml-64 min-h-screen flex flex-col relative">
+<!-- TopNavBar Anchor -->
+<header class="bg-surface/60 dark:bg-inverse-surface/60 backdrop-blur-xl border-b border-outline-variant/20 dark:border-outline-variant/10 flex justify-between items-center px-8 w-full h-16 sticky top-0 z-40">
+<div class="flex items-center gap-4 flex-1">
+<div class="relative w-full max-w-md group focus-within:ring-1 ring-primary rounded-lg transition-all">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full bg-surface-container-low border-none focus:ring-0 rounded-lg pl-10 text-body-md py-2" placeholder="Search instruments or students..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4 ml-8">
+<button class="p-2 hover:bg-primary-container/10 rounded-full transition-colors" onclick="document.documentElement.classList.toggle('dark')" title="Toggle Dark Mode">
+<span class="material-symbols-outlined" data-icon="dark_mode">dark_mode</span>
+</button>
+<button class="p-2 hover:bg-primary-container/10 rounded-full transition-colors relative">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<button class="p-2 hover:bg-primary-container/10 rounded-full transition-colors">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+</div>
+</header>
+<!-- Dashboard Canvas -->
+<div class="p-8 max-w-[1400px] mx-auto w-full space-y-8">
+<!-- Welcome Section -->
+<section>
+<h2 class="font-headline-md text-headline-md text-primary mb-1">Tinh Hoa Việt Canvas</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Welcome back to the Cultural Digital Atelier.</p>
+</section>
+<!-- Metric Cards (Bento Grid Style) -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Card 1 -->
+<div class="glass-card p-6 rounded-xl relative overflow-hidden group hover:scale-[1.02] transition-transform">
+<div class="lacquer-overlay"></div>
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined p-2 bg-primary-container/20 text-primary rounded-lg">group</span>
+<span class="text-emerald-600 font-label-sm">+12%</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Total Users</p>
+<p class="font-headline-sm text-headline-sm mt-1">2,842</p>
+<div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary-container to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+</div>
+<!-- Card 2 -->
+<div class="glass-card p-6 rounded-xl relative overflow-hidden group hover:scale-[1.02] transition-transform">
+<div class="lacquer-overlay"></div>
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined p-2 bg-primary-container/20 text-primary rounded-lg">person_add</span>
+<span class="text-emerald-600 font-label-sm">+5%</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">New Users</p>
+<p class="font-headline-sm text-headline-sm mt-1">148</p>
+<div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary-container to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+</div>
+<!-- Card 3 -->
+<div class="glass-card p-6 rounded-xl relative overflow-hidden group hover:scale-[1.02] transition-transform">
+<div class="lacquer-overlay"></div>
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined p-2 bg-primary-container/20 text-primary rounded-lg">psychology</span>
+<span class="text-primary font-label-sm">Active</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Evaluations Done</p>
+<p class="font-headline-sm text-headline-sm mt-1">12,504</p>
+<div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary-container to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+</div>
+<!-- Card 4 -->
+<div class="glass-card p-6 rounded-xl relative overflow-hidden group hover:scale-[1.02] transition-transform">
+<div class="lacquer-overlay"></div>
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined p-2 bg-primary-container/20 text-primary rounded-lg">database</span>
+<span class="text-amber-600 font-label-sm">84%</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Storage Used</p>
+<p class="font-headline-sm text-headline-sm mt-1">42.8 GB</p>
+<div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary-container to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+</div>
+</section>
+<!-- Main Charts Section -->
+<section class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+<!-- Traffic Line Chart -->
+<div class="lg:col-span-2 glass-interactive p-6 rounded-xl shadow-sm">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-headline-sm text-headline-sm text-primary">Daily Cultural Traffic</h3>
+<div class="flex gap-2">
+<button class="px-3 py-1 text-xs font-label-sm bg-primary text-on-primary rounded-full">Week</button>
+<button class="px-3 py-1 text-xs font-label-sm hover:bg-primary-container/10 rounded-full transition-colors">Month</button>
+</div>
+</div>
+<div class="h-[300px]">
+<canvas id="trafficChart"></canvas>
+</div>
+</div>
+<!-- Instrument Popularity Doughnut -->
+<div class="glass-interactive p-6 rounded-xl shadow-sm">
+<h3 class="font-headline-sm text-headline-sm text-primary mb-6">Instrument Usage</h3>
+<div class="h-[300px] flex items-center justify-center">
+<canvas id="popularityChart"></canvas>
+</div>
+</div>
+</section>
+<!-- Recent Activities Section -->
+<section class="glass-card rounded-xl overflow-hidden shadow-sm">
+<div class="p-6 border-b border-outline-variant/20 flex justify-between items-center">
+<h3 class="font-headline-sm text-headline-sm text-primary">Recent Atelier Activities</h3>
+<button class="text-tertiary font-label-sm hover:underline flex items-center gap-1">
+            View All Logs <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead class="bg-primary-container/5 text-on-surface-variant font-label-sm uppercase tracking-tighter">
+<tr>
+<th class="px-6 py-4">Action</th>
+<th class="px-6 py-4">User</th>
+<th class="px-6 py-4">Instrument</th>
+<th class="px-6 py-4">Status</th>
+<th class="px-6 py-4 text-right">Time</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/10">
+<tr class="hover:bg-primary-container/5 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">mic</span>
+<span class="font-body-md">AI Evaluation</span>
+</div>
+</td>
+<td class="px-6 py-4">Hoàng Anh</td>
+<td class="px-6 py-4">Đàn Tranh</td>
+<td class="px-6 py-4">
+<span class="px-2 py-1 bg-emerald-100 text-emerald-800 rounded-md text-[10px] font-bold">EXCELLENT</span>
+</td>
+<td class="px-6 py-4 text-right text-on-surface-variant text-sm">2 mins ago</td>
+</tr>
+<tr class="hover:bg-primary-container/5 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">person_add</span>
+<span class="font-body-md">New Registration</span>
+</div>
+</td>
+<td class="px-6 py-4">Linh Đặng</td>
+<td class="px-6 py-4">Đàn Bầu</td>
+<td class="px-6 py-4">
+<span class="px-2 py-1 bg-primary-container/20 text-primary rounded-md text-[10px] font-bold">VERIFIED</span>
+</td>
+<td class="px-6 py-4 text-right text-on-surface-variant text-sm">15 mins ago</td>
+</tr>
+<tr class="hover:bg-primary-container/5 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">edit</span>
+<span class="font-body-md">Content Update</span>
+</div>
+</td>
+<td class="px-6 py-4">Admin Việt</td>
+<td class="px-6 py-4">Sáo Trúc</td>
+<td class="px-6 py-4">
+<span class="px-2 py-1 bg-surface-container-highest text-on-surface-variant rounded-md text-[10px] font-bold">DRAFT</span>
+</td>
+<td class="px-6 py-4 text-right text-on-surface-variant text-sm">42 mins ago</td>
+</tr>
+<tr class="hover:bg-primary-container/5 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">mic</span>
+<span class="font-body-md">AI Evaluation</span>
+</div>
+</td>
+<td class="px-6 py-4">Minh Tuấn</td>
+<td class="px-6 py-4">Đàn Tỳ Bà</td>
+<td class="px-6 py-4">
+<span class="px-2 py-1 bg-emerald-100 text-emerald-800 rounded-md text-[10px] font-bold">GOOD</span>
+</td>
+<td class="px-6 py-4 text-right text-on-surface-variant text-sm">1 hour ago</td>
+</tr>
+<tr class="hover:bg-primary-container/5 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">error</span>
+<span class="font-body-md">System Warning</span>
+</div>
+</td>
+<td class="px-6 py-4">System</td>
+<td class="px-6 py-4">N/A</td>
+<td class="px-6 py-4">
+<span class="px-2 py-1 bg-error-container text-on-error-container rounded-md text-[10px] font-bold">LOW DISK</span>
+</td>
+<td class="px-6 py-4 text-right text-on-surface-variant text-sm">3 hours ago</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</div>
+<!-- Background Lotus Motif (Subtle 3D Floating) -->
+<div class="fixed -bottom-20 -right-20 pointer-events-none opacity-10">
+<img alt="Lotus Motif" class="w-[500px] h-[500px] object-contain" data-alt="A delicate, highly detailed 3D render of a sacred lotus flower blooming, styled with a pearlescent white and soft gold metallic finish. The petals have a subtle translucency, and the entire form is floating elegantly against a minimalist light stone background. The mood is ethereal and serene, perfectly aligning with a premium cultural heritage brand aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBkMxSU-NJ3keV5IvT75YyZydUzgOHbABL10PQFYLZI7KoLbpE3hJc50_awYcTtQUwa37YRvBfVh1nlrX48cHYBTx2NyAIdiELdq2bmlze6ILWBC5jVPcsdfxk_p6FrkIPA8RgLeKxV--oM1EvAtSeobZEtosb6TE86xYTNA_m3qn74xuI3fv4Z5GFJAhtKUttTMcLbcsVcF9C3HnZTEBJsJRYj6aAFFd2hkvODYJBELp5WaoDeK932PUWx33WZEO_zdev3UFwpF9NZ"/>
+</div>
+</main>
+<script>
+    // Traffic Chart Configuration
+    const trafficCtx = document.getElementById('trafficChart').getContext('2d');
+    new Chart(trafficCtx, {
+      type: 'line',
+      data: {
+        labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+        datasets: [{
+          label: 'Active Users',
+          data: [1200, 1900, 1700, 2100, 2500, 3200, 2800],
+          borderColor: '#d4af37',
+          backgroundColor: 'rgba(212, 175, 55, 0.1)',
+          fill: true,
+          tension: 0.4,
+          pointRadius: 4,
+          pointBackgroundColor: '#735c00'
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false }
+        },
+        scales: {
+          y: {
+            beginAtZero: true,
+            grid: { color: 'rgba(0,0,0,0.05)' },
+            ticks: { font: { family: 'Be Vietnam Pro' } }
+          },
+          x: {
+            grid: { display: false },
+            ticks: { font: { family: 'Be Vietnam Pro' } }
+          }
+        }
+      }
+    });
+
+    // Popularity Chart Configuration
+    const popCtx = document.getElementById('popularityChart').getContext('2d');
+    new Chart(popCtx, {
+      type: 'doughnut',
+      data: {
+        labels: ['Tranh', 'Sáo', 'Tỳ Bà', 'Nhị', 'Bầu'],
+        datasets: [{
+          data: [35, 25, 15, 15, 10],
+          backgroundColor: [
+            '#d4af37',
+            '#895033',
+            '#e9c349',
+            '#eba280',
+            '#735c00'
+          ],
+          borderWidth: 0,
+          hoverOffset: 10
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            position: 'bottom',
+            labels: {
+              padding: 20,
+              font: { family: 'Be Vietnam Pro', size: 12 }
+            }
+          }
+        },
+        cutout: '70%'
+      }
+    });
+  </script>
+</body></html>

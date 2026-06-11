@@ -109,9 +109,9 @@ export default function Header() {
           </nav>
 
           {/* Trailing Action (Desktop) */}
-          <button className="hidden md:block font-label-sm text-label-sm bg-primary-container text-on-primary-container px-6 py-2.5 rounded-full scale-95 active:scale-90 transition-transform hover:shadow-lg shadow-primary-container/20">
+          <Link href="/studio" className="hidden md:block font-label-sm text-label-sm bg-primary-container text-on-primary-container px-6 py-2.5 rounded-full scale-95 active:scale-90 transition-transform hover:shadow-lg shadow-primary-container/20">
             Trải Nghiệm Miễn Phí
-          </button>
+          </Link>
 
           {/* Mobile Menu Icon (Hidden on Desktop) */}
           <button 
@@ -174,9 +174,9 @@ export default function Header() {
             </nav>
             
             <div className="pt-4 pb-2 border-t border-primary/10">
-              <button className="w-full font-label-sm text-label-sm bg-primary-container text-on-primary-container px-6 py-3 rounded-full hover:shadow-lg shadow-primary-container/20 transition-all">
+              <Link href="/studio" className="block text-center w-full font-label-sm text-label-sm bg-primary-container text-on-primary-container px-6 py-3 rounded-full hover:shadow-lg shadow-primary-container/20 transition-all">
                 Trải Nghiệm Miễn Phí
-              </button>
+              </Link>
             </div>
           </div>
         </div>

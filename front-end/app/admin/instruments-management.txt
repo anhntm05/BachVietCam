@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&amp;family=Be+Vietnam+Pro:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "inverse-surface": "#2f3130",
+            "on-tertiary-container": "#6b371d",
+            "on-primary": "#ffffff",
+            "inverse-on-surface": "#f1f1f0",
+            "on-tertiary-fixed-variant": "#6d391e",
+            "surface-container-lowest": "#ffffff",
+            "on-primary-fixed": "#241a00",
+            "tertiary-fixed": "#ffdbcc",
+            "secondary-fixed-dim": "#ffb95f",
+            "on-primary-container": "#554300",
+            "background": "#f9f9f8",
+            "tertiary-container": "#eba280",
+            "on-secondary-fixed-variant": "#653e00",
+            "surface-container-highest": "#e2e2e2",
+            "on-secondary-fixed": "#2a1700",
+            "tertiary-fixed-dim": "#ffb694",
+            "tertiary": "#895033",
+            "on-surface-variant": "#4d4635",
+            "on-tertiary-fixed": "#351000",
+            "on-tertiary": "#ffffff",
+            "inverse-primary": "#e9c349",
+            "surface-container": "#eeeeed",
+            "primary-container": "#d4af37",
+            "primary": "#735c00",
+            "on-surface": "#1a1c1c",
+            "surface-variant": "#e2e2e2",
+            "surface-bright": "#f9f9f8",
+            "on-secondary": "#ffffff",
+            "surface-dim": "#dadad9",
+            "surface-container-high": "#e8e8e7",
+            "primary-fixed": "#ffe088",
+            "on-error-container": "#93000a",
+            "on-secondary-container": "#684000",
+            "on-primary-fixed-variant": "#574500",
+            "on-background": "#1a1c1c",
+            "on-error": "#ffffff",
+            "surface": "#f9f9f8",
+            "error-container": "#ffdad6",
+            "error": "#ba1a1a",
+            "surface-tint": "#735c00",
+            "secondary-fixed": "#ffddb8",
+            "outline-variant": "#d0c5af",
+            "secondary": "#855300",
+            "surface-container-low": "#f4f4f3",
+            "primary-fixed-dim": "#e9c349",
+            "secondary-container": "#fea619",
+            "outline": "#7f7663"
+          },
+          "fontFamily": {
+            "headline-sm": ["Playfair Display"],
+            "display-lg": ["Playfair Display"],
+            "label-sm": ["Be Vietnam Pro"],
+            "body-lg": ["Be Vietnam Pro"],
+            "headline-md": ["Playfair Display"],
+            "body-md": ["Be Vietnam Pro"]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .glass-panel {
+      background: rgba(255, 255, 255, 0.38);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-top: 2px solid #D4AF37;
+    }
+    .lacquer-overlay {
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0l2.5 27.5L60 30l-27.5 2.5L30 60l-2.5-27.5L0 30l27.5-2.5z' fill='%23d4af37' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
+    }
+    .bento-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 24px;
+    }
+    .lotus-bg {
+      position: fixed;
+      bottom: -10%;
+      right: -5%;
+      width: 600px;
+      height: 600px;
+      opacity: 0.04;
+      pointer-events: none;
+      z-index: -1;
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface font-body-md overflow-x-hidden min-h-screen">
+<div class="lotus-bg">
+<svg class="text-primary" fill="currentColor" viewbox="0 0 100 100">
+<path d="M50 10 C50 10 40 40 10 50 C40 60 50 90 50 90 C50 90 60 60 90 50 C60 40 50 10 50 10 Z"></path>
+</svg>
+</div>
+<!-- SideNavBar -->
+<aside class="h-screen w-64 fixed left-0 top-0 bg-surface-container-low dark:bg-inverse-surface border-r border-outline-variant/20 dark:border-outline-variant/10 flex flex-col h-full z-50">
+<div class="p-8">
+<h1 class="font-headline-sm text-headline-sm font-bold text-primary dark:text-primary-fixed-dim">Bách Việt Cầm</h1>
+<p class="font-label-sm text-label-sm text-on-surface-variant opacity-70">Cultural Atelier Admin</p>
+</div>
+<nav class="flex-1 px-2 space-y-1">
+<a class="text-on-surface-variant dark:text-surface-variant flex items-center gap-3 px-6 py-4 hover:bg-surface-container-high dark:hover:bg-surface-variant transition-colors" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-sm text-label-sm">Dashboard</span>
+</a>
+<a class="text-on-surface-variant dark:text-surface-variant flex items-center gap-3 px-6 py-4 hover:bg-surface-container-high dark:hover:bg-surface-variant transition-colors" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-label-sm text-label-sm">Users</span>
+</a>
+<!-- Active State for Instruments -->
+<a class="text-primary dark:text-primary-fixed-dim font-bold border-l-4 border-primary flex items-center gap-3 px-6 py-4 bg-primary-container/10 transition-all scale-[0.98]" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">music_note</span>
+<span class="font-label-sm text-label-sm">Instruments</span>
+</a>
+<a class="text-on-surface-variant dark:text-surface-variant flex items-center gap-3 px-6 py-4 hover:bg-surface-container-high dark:hover:bg-surface-variant transition-colors" href="#">
+<span class="material-symbols-outlined">psychology</span>
+<span class="font-label-sm text-label-sm">AI Evaluations</span>
+</a>
+<a class="text-on-surface-variant dark:text-surface-variant flex items-center gap-3 px-6 py-4 hover:bg-surface-container-high dark:hover:bg-surface-variant transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-sm text-label-sm">Settings</span>
+</a>
+</nav>
+<div class="p-6 border-t border-outline-variant/10">
+<div class="flex items-center gap-3">
+<img alt="Bách Việt Cầm Admin Profile" class="w-10 h-10 rounded-full border border-primary/20" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAKSLznDcYTQHriti1y4Gpl3a7RzjqpXpb4sp6IjW2iQAyjNHKKknR6gBvs-QBzKkkXc2D-f5H2GYhAx9b5tnSB1YkK7W-53iJtOz6pzNBVs_5UIyRBGGA3TY9WUi6jdi7VD5cQxxsXAVlsRlvRVcIOmf1rcnG6_-B3_aQZ5pztHbV4JxN7UUrVs8BIQKzE4wnEWvVVBynFfBNU6MKK7oVStbYHEwGvT_tZ5504bIn55xjmgADIdE4t_iOqTX9siJmEtS4PavKl2WvO"/>
+<div class="overflow-hidden">
+<p class="font-label-sm text-label-sm font-bold truncate">Admin Name</p>
+<p class="text-xs opacity-60">System Overseer</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Wrapper -->
+<main class="ml-64 min-h-screen">
+<!-- TopNavBar -->
+<header class="flex justify-between items-center px-8 w-full sticky top-0 z-40 bg-surface/60 dark:bg-inverse-surface/60 backdrop-blur-xl border-b border-outline-variant/20 dark:border-outline-variant/10 h-16">
+<div class="flex items-center gap-4 flex-1">
+<div class="relative w-full max-w-md group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full bg-surface-container-low border-none rounded-full py-2 pl-10 pr-4 focus:ring-1 ring-primary font-body-md text-sm placeholder-on-surface-variant/50" placeholder="Search archive..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<button class="text-on-surface-variant hover:text-primary transition-colors focus-within:ring-1 ring-primary rounded-full p-1">
+<span class="material-symbols-outlined">dark_mode</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors focus-within:ring-1 ring-primary rounded-full p-1 relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-0 right-0 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors focus-within:ring-1 ring-primary rounded-full p-1">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</div>
+</header>
+<!-- Content Canvas -->
+<div class="p-10 max-w-[1400px] mx-auto">
+<!-- Header Section -->
+<div class="flex justify-between items-end mb-12">
+<div>
+<h2 class="font-headline-md text-headline-md text-primary mb-2">Instrument Collections</h2>
+<p class="font-body-lg text-on-surface-variant max-w-xl">Curating the timeless sounds of the Vietnamese spirit. Manage metadata, pedagogical records, and teacher reference materials for the digital atelier.</p>
+</div>
+<button class="bg-primary-container text-on-primary-container px-8 py-4 rounded-xl flex items-center gap-3 font-bold hover:shadow-lg transition-all hover:-translate-y-1 active:scale-95 group relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent pointer-events-none"></div>
+<span class="material-symbols-outlined">add_circle</span>
+<span class="font-label-sm uppercase tracking-wider">Add New Instrument</span>
+</button>
+</div>
+<!-- Bento Grid of Instruments -->
+<div class="bento-grid mb-16">
+<!-- Card 1: Đàn Bầu -->
+<div class="col-span-12 md:col-span-4 bg-surface-container-low rounded-2xl overflow-hidden group transition-all hover:ring-2 ring-primary/20 hover:shadow-xl flex flex-col">
+<div class="h-64 overflow-hidden relative">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="A macro close-up of a traditional Vietnamese Đàn Bầu monocord instrument with polished mahogany wood and delicate golden silk strings. The lighting is dramatic and moody, highlighting the craftsmanship and the elegant curve of the bamboo handle against a soft, creamy studio background. The overall aesthetic is one of luxury, cultural heritage, and high-end artisanal quality." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKTcWb9rv4lUIFNCXsAjoKDApWVfFIMx3iexX8VtEVdyoVoCglBpnk-MC3SIAd1xEJQqayUqpQggRdPu-H6r8fFl8Vb5XcSeXqX03xTSytSEUymAga8boqdl8rQetdUV_AGpIUrelSrRaKYx6km7YpibfgAhOD4Dy8pzWZtBYAgWbRJIuRiYQEGuFPSBuM85x2JxOTiQfu_78xgcQqu5SAsDxEqk-FHIAPCqr6JRCvRFxLv1XaAz11iOwPh9tac7a27DbzyeamkNvx"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-transparent to-transparent"></div>
+</div>
+<div class="p-6 flex-1 flex flex-col">
+<h3 class="font-headline-sm text-headline-sm text-primary mb-2">Đàn Bầu</h3>
+<p class="text-on-surface-variant text-sm line-clamp-2 mb-4">The haunting soul of Vietnamese music, this monochord instrument produces ethereal harmonics mirroring the human voice.</p>
+<div class="mt-auto flex justify-between items-center">
+<span class="text-[10px] font-bold uppercase tracking-widest text-primary/60">Zither Family</span>
+<button class="text-primary flex items-center gap-1 font-bold text-sm group-hover:gap-2 transition-all">
+                Edit Details <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 2: Đàn Tranh -->
+<div class="col-span-12 md:col-span-4 bg-surface-container-low rounded-2xl overflow-hidden group transition-all hover:ring-2 ring-primary/20 hover:shadow-xl flex flex-col">
+<div class="h-64 overflow-hidden relative">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="A detailed view of a 16-string Đàn Tranh zither with intricate mother-of-pearl inlays depicting traditional Vietnamese landscapes and floral motifs. The instrument is set in a prestigious digital atelier with soft ambient golden lighting. The wood has a deep, rich lacquer finish, and the atmosphere is serene and scholarly, perfect for a high-end cultural archive." src="https://lh3.googleusercontent.com/aida-public/AB6AXuClAnlDLHhcqzXfhmRrgr-IlrZxY-zau1yFoWMeA3b4OScWwZoHn9iMX5592TcigAfWOVxxEqKFpqCQmgw138mtSq2-20BMLfJeCrFRt3j7UXmfGzydg_44CRI_6bThtrHG36XQEWCtLpgEbJZA9psbI_hQK4uV2G4-85fgJ1DjernU3J1B670GlE_bbeYBRgG6VshLk-X9sz4WNO_K5Ei1i8SXPD-7qPof8TlFP5q1__zqkxDyFT9X0jjPvx_bWG6ubfIXvvsI7-PC"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-transparent to-transparent"></div>
+</div>
+<div class="p-6 flex-1 flex flex-col">
+<h3 class="font-headline-sm text-headline-sm text-primary mb-2">Đàn Tranh</h3>
+<p class="text-on-surface-variant text-sm line-clamp-2 mb-4">A plucked zither with 16 to 22 strings, known for its bright, cascading melodic runs and crystalline clarity.</p>
+<div class="mt-auto flex justify-between items-center">
+<span class="text-[10px] font-bold uppercase tracking-widest text-primary/60">Plucked Strings</span>
+<button class="text-primary flex items-center gap-1 font-bold text-sm group-hover:gap-2 transition-all">
+                Edit Details <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 3: Đàn Tỳ Bà -->
+<div class="col-span-12 md:col-span-4 bg-surface-container-low rounded-2xl overflow-hidden group transition-all hover:ring-2 ring-primary/20 hover:shadow-xl flex flex-col">
+<div class="h-64 overflow-hidden relative">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="A pear-shaped Đàn Tỳ Bà lute leaning against a minimalist light stone wall. The instrument features a light-colored wood body with polished gold-toned frets. The scene is bright and airy, capturing a modern museum-quality look with sharp focus on the textures of the wood and strings. The mood is sophisticated and minimal, showcasing contemporary luxury in a traditional context." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCEgejQIHnU_8FlHixPE6A23L4xvJPfUiTEnzvTsFfSUg1uC07vzKhzWGKtF7WDTX2vR4rtOl_PhHuTzc2Bfpodkwe7FPCWpBHqpnYjhJ5rVAsA_Fp31xDMzUQMKuUf80Ak7seFhgIE7G2i2yZVhQq9R9KnmcvLuqUfcUuneyouol28Xz3rSLZnHLplMtOF3dPrEniM9EvJ00R7HQQJ92DNxZMgjIkFjYyRxiUmFsYWsRAgxhvkHEc6YnvP6fjncUuXjwEODOMiSA18"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-transparent to-transparent"></div>
+</div>
+<div class="p-6 flex-1 flex flex-col">
+<h3 class="font-headline-sm text-headline-sm text-primary mb-2">Đàn Tỳ Bà</h3>
+<p class="text-on-surface-variant text-sm line-clamp-2 mb-4">The pear-shaped lute, essential for chamber music and royal court performances with its percussive, agile tone.</p>
+<div class="mt-auto flex justify-between items-center">
+<span class="text-[10px] font-bold uppercase tracking-widest text-primary/60">Lute Family</span>
+<button class="text-primary flex items-center gap-1 font-bold text-sm group-hover:gap-2 transition-all">
+                Edit Details <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Edit/Form Section: Museum Quality Detail View -->
+<section class="glass-panel lacquer-overlay rounded-[32px] p-10 mb-16 shadow-2xl relative">
+<div class="flex flex-col lg:flex-row gap-12">
+<!-- Column 1: Metadata & Form -->
+<div class="flex-1 space-y-8">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined">edit_note</span>
+</div>
+<h3 class="font-headline-md text-headline-md">Editing: Đàn Bầu Collection</h3>
+</div>
+<form class="space-y-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="font-label-sm text-xs uppercase tracking-widest text-primary">Instrument Name</label>
+<input class="w-full bg-surface-container-lowest border-b-2 border-primary-container border-x-0 border-t-0 focus:ring-0 focus:border-primary font-body-md py-3 text-lg" type="text" value="Đàn Bầu (Monochord)"/>
+</div>
+<div class="space-y-2">
+<label class="font-label-sm text-xs uppercase tracking-widest text-primary">Historical Era</label>
+<select class="w-full bg-surface-container-lowest border-b-2 border-primary-container border-x-0 border-t-0 focus:ring-0 focus:border-primary font-body-md py-3 text-lg">
+<option>Hồng Bàng Period</option>
+<option>Lý-Trần Dynasties</option>
+<option selected="">Lê Dynasty (Imperial Modern)</option>
+<option>Contemporary Digital</option>
+</select>
+</div>
+</div>
+<div class="space-y-2">
+<label class="font-label-sm text-xs uppercase tracking-widest text-primary">Historical Narrative</label>
+<textarea class="w-full bg-surface-container-lowest border-b-2 border-primary-container border-x-0 border-t-0 focus:ring-0 focus:border-primary font-body-md py-3 resize-none" rows="4">The origin of the đàn bầu is a legend involving a blind woman who played for her husband's return. Historically, it is documented as a folk instrument that evolved into a centerpiece of the Hue Imperial Court music.</textarea>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="font-label-sm text-xs uppercase tracking-widest text-primary">Structural Specs</label>
+<textarea class="w-full bg-surface-container-lowest border-b-2 border-primary-container border-x-0 border-t-0 focus:ring-0 focus:border-primary font-body-md py-3 resize-none text-sm" rows="3">Gourd resonator, silk string (modern steel), bamboo handle (cần đàn), water buffalo horn components.</textarea>
+</div>
+<div class="space-y-2">
+<label class="font-label-sm text-xs uppercase tracking-widest text-primary">Technical Performance</label>
+<textarea class="w-full bg-surface-container-lowest border-b-2 border-primary-container border-x-0 border-t-0 focus:ring-0 focus:border-primary font-body-md py-3 resize-none text-sm" rows="3">Pressure-based pitch modulation, natural harmonics, tremolo using handle manipulation.</textarea>
+</div>
+</div>
+</form>
+</div>
+<!-- Column 2: Audio & Assets Management -->
+<div class="w-full lg:w-96 space-y-8">
+<div class="bg-surface-container rounded-2xl p-6 border border-primary-container/20">
+<h4 class="font-label-sm text-xs uppercase tracking-widest text-primary mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-lg">mic</span> Master Audio References
+              </h4>
+<div class="space-y-4">
+<!-- Audio Item -->
+<div class="bg-white/50 p-4 rounded-xl flex items-center gap-4">
+<button class="w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center hover:scale-105 transition-transform">
+<span class="material-symbols-outlined">play_arrow</span>
+</button>
+<div class="flex-1 overflow-hidden">
+<p class="text-xs font-bold truncate">Master_Vuong_Bầu_Sol.wav</p>
+<p class="text-[10px] opacity-60">Classical Modal Example • 4:22</p>
+</div>
+<button class="text-on-surface-variant hover:text-error transition-colors">
+<span class="material-symbols-outlined text-xl">delete</span>
+</button>
+</div>
+<!-- Audio Item -->
+<div class="bg-white/50 p-4 rounded-xl flex items-center gap-4">
+<button class="w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center hover:scale-105 transition-transform">
+<span class="material-symbols-outlined">play_arrow</span>
+</button>
+<div class="flex-1 overflow-hidden">
+<p class="text-xs font-bold truncate">Pedagogy_Basic_Scale.mp3</p>
+<p class="text-[10px] opacity-60">Technique Drill • 1:15</p>
+</div>
+<button class="text-on-surface-variant hover:text-error transition-colors">
+<span class="material-symbols-outlined text-xl">delete</span>
+</button>
+</div>
+<div class="mt-4">
+<label class="cursor-pointer group">
+<div class="border-2 border-dashed border-primary-container/40 rounded-xl p-8 flex flex-col items-center justify-center gap-2 group-hover:bg-primary-container/5 transition-colors">
+<span class="material-symbols-outlined text-primary text-3xl">upload_file</span>
+<span class="text-xs font-bold text-primary">Upload Audio File</span>
+</div>
+<input class="hidden" type="file"/>
+</label>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-3">
+<button class="w-full bg-primary text-on-primary py-4 rounded-xl font-bold hover:shadow-lg transition-all active:scale-95">Save Changes</button>
+<button class="w-full border-2 border-outline-variant text-on-surface-variant py-4 rounded-xl font-bold hover:bg-surface-container transition-all">Discard Edits</button>
+</div>
+</div>
+</div>
+<!-- Decorative Separator -->
+<div class="mt-12 flex items-center gap-4">
+<div class="flex-1 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent"></div>
+<span class="material-symbols-outlined text-primary opacity-40">filter_vintage</span>
+<div class="flex-1 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent"></div>
+</div>
+</section>
+<!-- Advanced Settings / Meta Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
+<div class="bg-cream-50 p-8 rounded-2xl border border-amber-500/20 shadow-sm">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-primary">analytics</span>
+<h4 class="font-bold text-sm uppercase tracking-wide">Usage Analytics</h4>
+</div>
+<p class="text-sm text-on-surface-variant mb-6">Instrument profile has been viewed 1,240 times this month. Pedagogy videos played 450 times.</p>
+<div class="h-2 w-full bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-primary w-3/4 rounded-full"></div>
+</div>
+</div>
+<div class="bg-cream-50 p-8 rounded-2xl border border-amber-500/20 shadow-sm">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-primary">school</span>
+<h4 class="font-bold text-sm uppercase tracking-wide">Teacher Reviews</h4>
+</div>
+<p class="text-sm text-on-surface-variant mb-4">3 teachers have submitted revisions for the 'Technique' section.</p>
+<button class="text-primary font-bold text-xs underline underline-offset-4 decoration-primary-container hover:decoration-primary transition-all">Review Submissions</button>
+</div>
+<div class="bg-cream-50 p-8 rounded-2xl border border-amber-500/20 shadow-sm">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-primary">language</span>
+<h4 class="font-bold text-sm uppercase tracking-wide">Translations</h4>
+</div>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-primary/10 text-primary text-[10px] font-bold rounded-full border border-primary/20">Vietnamese (Main)</span>
+<span class="px-3 py-1 bg-surface-container text-on-surface-variant text-[10px] font-bold rounded-full">English</span>
+<span class="px-3 py-1 bg-surface-container text-on-surface-variant text-[10px] font-bold rounded-full">French</span>
+<button class="w-6 h-6 rounded-full bg-primary text-on-primary flex items-center justify-center"><span class="material-symbols-outlined text-xs">add</span></button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<script>
+    // Micro-interaction for inputs
+    document.querySelectorAll('input, textarea, select').forEach(el => {
+      el.addEventListener('focus', () => {
+        el.parentElement.querySelector('label').style.color = '#735c00';
+      });
+      el.addEventListener('blur', () => {
+        el.parentElement.querySelector('label').style.color = '';
+      });
+    });
+
+    // Simulated click behavior for instrument cards
+    document.querySelectorAll('.bento-grid > div').forEach(card => {
+      card.addEventListener('click', () => {
+        card.classList.add('ring-4');
+        setTimeout(() => card.classList.remove('ring-4'), 200);
+      });
+    });
+  </script>
+</body></html>

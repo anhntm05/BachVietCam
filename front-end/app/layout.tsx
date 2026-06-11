@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
-import Header from '@/components/ui/Header';
-import Footer from '@/components/ui/Footer';
+import LayoutWrapper from '@/components/ui/LayoutWrapper';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -22,22 +21,9 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
       </head>
       <body className="bg-background text-on-background font-body-md text-body-md antialiased min-h-screen flex flex-col relative overflow-x-hidden">
-        {/* Subtle Background Elements */}
-        <div className="fixed inset-0 pointer-events-none z-[-1] flex justify-center items-center opacity-30">
-          <div className="w-[800px] h-[800px] rounded-full bg-primary/5 blur-[120px]"></div>
-        </div>
-        
-        {/* Watermark Overlay */}
-        <div 
-          className="fixed inset-0 pointer-events-none z-[0] opacity-20 bg-center bg-no-repeat bg-[length:100%_auto]" 
-          style={{ backgroundImage: 'url("/images/Artboard-2.png")' }}
-        ></div>
-
-        <Header />
-        
-        {children}
-
-        <Footer />
+        <LayoutWrapper>
+          {children}
+        </LayoutWrapper>
       </body>
     </html>
   );

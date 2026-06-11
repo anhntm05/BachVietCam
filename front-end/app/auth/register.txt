@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Đăng ký - Bách Việt Cầm</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&amp;family=Be+Vietnam+Pro:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-fixed": "#ffe088",
+                    "surface-container-low": "#f4f4f3",
+                    "on-tertiary-fixed": "#351000",
+                    "on-surface-variant": "#4d4635",
+                    "on-tertiary": "#ffffff",
+                    "on-surface": "#1a1c1c",
+                    "on-secondary-container": "#684000",
+                    "error-container": "#ffdad6",
+                    "secondary": "#855300",
+                    "surface-bright": "#f9f9f8",
+                    "secondary-container": "#fea619",
+                    "on-primary": "#ffffff",
+                    "primary": "#735c00",
+                    "surface": "#f9f9f8",
+                    "on-background": "#1a1c1c",
+                    "tertiary-fixed-dim": "#ffb694",
+                    "outline-variant": "#d0c5af",
+                    "on-secondary-fixed-variant": "#653e00",
+                    "inverse-on-surface": "#f1f1f0",
+                    "on-error-container": "#93000a",
+                    "on-primary-container": "#554300",
+                    "on-error": "#ffffff",
+                    "background": "#f9f9f8",
+                    "on-tertiary-container": "#6b371d",
+                    "on-primary-fixed": "#241a00",
+                    "inverse-primary": "#e9c349",
+                    "tertiary": "#895033",
+                    "outline": "#7f7663",
+                    "surface-container-highest": "#e2e2e2",
+                    "tertiary-container": "#eba280",
+                    "inverse-surface": "#2f3130",
+                    "tertiary-fixed": "#ffdbcc",
+                    "secondary-fixed": "#ffddb8",
+                    "surface-container": "#eeeeed",
+                    "surface-dim": "#dadad9",
+                    "on-primary-fixed-variant": "#574500",
+                    "primary-fixed-dim": "#e9c349",
+                    "on-secondary-fixed": "#2a1700",
+                    "surface-container-high": "#e8e8e7",
+                    "surface-variant": "#e2e2e2",
+                    "surface-tint": "#735c00",
+                    "primary-container": "#d4af37",
+                    "on-tertiary-fixed-variant": "#6d391e",
+                    "error": "#ba1a1a",
+                    "on-secondary": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary-fixed-dim": "#ffb95f"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-mobile": "20px",
+                    "margin-desktop": "64px",
+                    "unit": "8px",
+                    "gutter": "24px",
+                    "container-max": "1280px"
+            },
+            "fontFamily": {
+                    "display-lg": ["Playfair Display"],
+                    "headline-sm": ["Playfair Display"],
+                    "label-sm": ["Be Vietnam Pro"],
+                    "display-lg-mobile": ["Playfair Display"],
+                    "body-md": ["Be Vietnam Pro"],
+                    "headline-md": ["Playfair Display"],
+                    "body-lg": ["Be Vietnam Pro"]
+            },
+            "fontSize": {
+                    "display-lg": ["56px", {"lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-sm": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "display-lg-mobile": ["40px", {"lineHeight": "48px", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-top: 2px solid #D4AF37;
+        }
+
+        .lacquer-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23735c00' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4v-4H4v4H0v2h4v4h2v-4h4v-2H6zm30 0v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .lotus-bg {
+            position: absolute;
+            bottom: -50px;
+            right: -50px;
+            opacity: 0.1;
+            transform: rotate(-15deg);
+            z-index: -1;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="bg-surface min-h-screen flex flex-col font-body-md text-on-surface selection:bg-primary-fixed selection:text-on-primary-fixed overflow-x-hidden">
+<!-- Top Navigation (Reduced for Focused Journey) -->
+<nav class="fixed top-0 w-full z-50 flex justify-between items-center px-6 md:px-margin-desktop py-6 bg-surface/60 backdrop-blur-xl border-b border-outline-variant/30">
+<div class="font-headline-sm text-headline-sm font-bold text-primary tracking-tight">
+            Bách Việt Cầm
+        </div>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors flex items-center gap-2" href="/login">
+            Đã có tài khoản? <span class="text-primary font-bold">Đăng nhập</span>
+</a>
+</nav>
+<main class="flex-grow flex items-center justify-center px-margin-mobile md:px-0 pt-24 pb-12 relative">
+<!-- Ambient Decorative Layer -->
+<div class="absolute inset-0 pointer-events-none overflow-hidden">
+<div class="lotus-bg">
+<span class="material-symbols-outlined text-[400px] text-primary">filter_vintage</span>
+</div>
+</div>
+<!-- Registration Bento Container -->
+<div class="w-full max-w-[1000px] grid grid-cols-1 md:grid-cols-12 gap-gutter items-stretch">
+<!-- Left Side: Cultural Inspiration (Desktop Only) -->
+<div class="hidden md:flex md:col-span-5 flex-col justify-between p-10 bg-surface-container-low rounded-xl border border-primary-container/20 relative overflow-hidden group">
+<div class="relative z-10">
+<span class="material-symbols-outlined text-primary text-4xl mb-6">auto_awesome</span>
+<h1 class="font-display-lg text-display-lg text-on-surface-variant leading-tight">Khởi đầu <br/><span class="text-primary italic">Hành trình</span></h1>
+<p class="mt-6 font-body-lg text-body-lg text-outline max-w-xs leading-relaxed">
+                        Tham gia cùng chúng tôi để khám phá những thanh âm huyền bí của dân tộc trong không gian số đương đại.
+                    </p>
+</div>
+<div class="mt-12 relative z-10">
+<div class="flex items-center gap-4 py-4 border-t border-outline-variant/40">
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container">
+<span class="material-symbols-outlined text-xl">library_music</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Di sản số hóa</span>
+</div>
+</div>
+<!-- Subtle Texture Overlay -->
+<div class="absolute inset-0 lacquer-pattern opacity-20 pointer-events-none"></div>
+</div>
+<!-- Right Side: Registration Form -->
+<div class="md:col-span-7 glass-panel rounded-xl shadow-2xl shadow-primary/5 p-8 md:p-12 relative overflow-hidden">
+<!-- Step Indicator -->
+<div class="flex items-center gap-4 mb-10">
+<div class="flex items-center gap-2">
+<span class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center text-xs font-bold">1</span>
+<span class="font-label-sm text-label-sm text-primary">Thông tin cá nhân</span>
+</div>
+<div class="h-[1px] w-12 bg-outline-variant"></div>
+<div class="flex items-center gap-2 opacity-40">
+<span class="w-8 h-8 rounded-full border border-outline flex items-center justify-center text-xs font-bold">2</span>
+<span class="font-label-sm text-label-sm text-outline">Xác thực</span>
+</div>
+</div>
+<header class="mb-8">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-2">Tạo tài khoản mới</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Vui lòng điền đầy đủ các thông tin bên dưới để bắt đầu.</p>
+</header>
+<form action="#" class="space-y-6" method="POST">
+<!-- Full Name -->
+<div class="group">
+<label class="block font-label-sm text-label-sm text-outline mb-2 group-focus-within:text-primary transition-colors" for="fullname">Họ và Tên</label>
+<div class="relative">
+<input class="w-full bg-surface-container-low border-0 border-b-2 border-outline-variant py-3 px-0 focus:ring-0 focus:border-primary transition-all text-body-md placeholder:text-outline-variant/60" id="fullname" name="fullname" placeholder="Nguyễn Văn A" required="" type="text"/>
+<span class="material-symbols-outlined absolute right-0 bottom-3 text-outline-variant group-focus-within:text-primary transition-colors">person</span>
+</div>
+</div>
+<!-- Email Address -->
+<div class="group">
+<label class="block font-label-sm text-label-sm text-outline mb-2 group-focus-within:text-primary transition-colors" for="email">Địa chỉ Email</label>
+<div class="relative">
+<input class="w-full bg-surface-container-low border-0 border-b-2 border-outline-variant py-3 px-0 focus:ring-0 focus:border-primary transition-all text-body-md placeholder:text-outline-variant/60" id="email" name="email" placeholder="example@bachvietcam.vn" required="" type="email"/>
+<span class="material-symbols-outlined absolute right-0 bottom-3 text-outline-variant group-focus-within:text-primary transition-colors">mail</span>
+</div>
+</div>
+<!-- Password -->
+<div class="group">
+<label class="block font-label-sm text-label-sm text-outline mb-2 group-focus-within:text-primary transition-colors" for="password">Mật khẩu</label>
+<div class="relative">
+<input class="w-full bg-surface-container-low border-0 border-b-2 border-outline-variant py-3 px-0 focus:ring-0 focus:border-primary transition-all text-body-md placeholder:text-outline-variant/60" id="password" name="password" placeholder="••••••••" required="" type="password"/>
+<button class="absolute right-0 bottom-3 text-outline-variant hover:text-primary transition-colors" onclick="togglePassword()" type="button">
+<span class="material-symbols-outlined" id="pwd-icon">visibility</span>
+</button>
+</div>
+<p class="mt-2 text-[10px] text-outline uppercase tracking-wider">Tối thiểu 8 ký tự bao gồm chữ và số</p>
+</div>
+<!-- Actions -->
+<div class="pt-6 space-y-4">
+<button class="w-full py-4 bg-primary-container text-on-primary-container font-bold rounded-lg shadow-lg shadow-primary-container/20 hover:scale-[1.02] active:scale-95 transition-all flex items-center justify-center gap-3" type="submit">
+                            Tiếp tục đăng ký
+                            <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<div class="flex items-center justify-center gap-3 py-2">
+<div class="h-[1px] flex-grow bg-outline-variant/30"></div>
+<span class="font-label-sm text-label-sm text-outline">Hoặc đăng ký bằng</span>
+<div class="h-[1px] flex-grow bg-outline-variant/30"></div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<button class="flex items-center justify-center gap-2 py-3 border border-outline-variant rounded-lg hover:bg-surface-container transition-colors" type="button">
+<img alt="Google" class="w-5 h-5" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSB0om_FAhdXeJiFzwFPGv38kga8zp6mRFkVK2otTJZ1ixg5h7QWDTnx_66slPb1v9zjaETcmlDgKFyDqGdNdirI6zMTeZkN47Ey0BMnnLLMPWCFrAFiukwnFN00WkG5brzpQylumISPF1C0yZx22EndQmhz5jPS4e9Ti9WmSqpcBgdXzL5CX-2x4YSrWI_BXHEceh5nisUd7Lb5xBivEwVoASxRzjPo1Vyr_jftu7Nbn_v2d-mC4kcIo-YknGE2ZXShESCdw1f0_V"/>
+<span class="font-label-sm text-label-sm">Google</span>
+</button>
+</div>
+</div>
+</form>
+<!-- Terms -->
+<p class="mt-10 text-center text-[11px] text-on-surface-variant leading-relaxed">
+                    Bằng việc đăng ký, bạn đồng ý với <a class="text-primary font-bold underline" href="#">Điều khoản dịch vụ</a> và <br/> <a class="text-primary font-bold underline" href="#">Chính sách bảo mật</a> của Bách Việt Cầm.
+                </p>
+</div>
+</div>
+</main>
+<footer class="w-full px-margin-desktop py-12 bg-surface-container-lowest border-t border-outline-variant/20 grid grid-cols-1 md:grid-cols-4 gap-gutter mt-auto">
+<div class="md:col-span-2">
+<div class="font-headline-sm text-headline-sm text-primary mb-4">Bách Việt Cầm</div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-sm">
+                © 2024 Bách Việt Cầm. Di sản âm nhạc dân tộc trong kỷ nguyên số.
+            </p>
+</div>
+<div>
+<h4 class="font-label-sm text-label-sm text-secondary uppercase tracking-widest mb-6">Khám phá</h4>
+<ul class="space-y-4">
+<li><a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Nhạc cụ</a></li>
+<li><a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Nghệ sĩ</a></li>
+<li><a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Thư viện</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-sm text-label-sm text-secondary uppercase tracking-widest mb-6">Hỗ trợ</h4>
+<ul class="space-y-4">
+<li><a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Điều khoản</a></li>
+<li><a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Bảo mật</a></li>
+<li><a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Liên hệ</a></li>
+</ul>
+</div>
+</footer>
+<script>
+        function togglePassword() {
+            const pwdInput = document.getElementById('password');
+            const pwdIcon = document.getElementById('pwd-icon');
+            if (pwdInput.type === 'password') {
+                pwdInput.type = 'text';
+                pwdIcon.innerText = 'visibility_off';
+            } else {
+                pwdInput.type = 'password';
+                pwdIcon.innerText = 'visibility';
+            }
+        }
+
+        // Add subtle mouse move effect to the glass panel
+        const card = document.querySelector('.glass-panel');
+        document.addEventListener('mousemove', (e) => {
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+            
+            card.style.transform = `translate(${(x - 0.5) * 10}px, ${(y - 0.5) * 10}px)`;
+        });
+    </script>
+</body></html>

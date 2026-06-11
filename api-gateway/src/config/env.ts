@@ -36,4 +36,7 @@ export const config = {
 
   // CORS Origin cho phep frontend goi api. Split bang dau phay neu co nhieu domain.
   corsOrigin: process.env.CORS_ORIGIN === '*' ? '*' : (process.env.CORS_ORIGIN ? process.env.CORS_ORIGIN.split(',') : 'http://localhost:3000'),
+
+  mongoUri: process.env.MONGODB_URI,
 };
+
