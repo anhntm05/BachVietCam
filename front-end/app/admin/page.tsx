@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import Chart from 'chart.js/auto';
+import Cookies from 'js-cookie';
 
 interface DashboardMetrics {
   totalUsers: number;
@@ -15,7 +16,7 @@ interface Activity {
   action: string;
   user: string;
   instrument: string;
-  status: string;
+  score: number;
   time: string;
   icon: string;
 }
@@ -34,13 +35,15 @@ export default function DashboardPage() {
     const fetchData = async () => {
       try {
         const apiUrl = process.env.NEXT_PUBLIC_GATEWAY_URL || 'http://localhost:4000';
-        const metricsRes = await fetch(`${apiUrl}/api/admin/dashboard/metrics`);
+        const headers = { Authorization: `Bearer ${Cookies.get('token')}` };
+        
+        const metricsRes = await fetch(`${apiUrl}/api/admin/dashboard/metrics`, { headers });
         if (metricsRes.ok) {
           const metricsData = await metricsRes.json();
           setMetrics(prev => ({ ...prev, ...metricsData }));
         }
 
-        const activitiesRes = await fetch(`${apiUrl}/api/admin/dashboard/activities`);
+        const activitiesRes = await fetch(`${apiUrl}/api/admin/dashboard/activities`, { headers });
         if (activitiesRes.ok) {
           const activitiesData = await activitiesRes.json();
           setActivities(activitiesData);
@@ -224,7 +227,7 @@ export default function DashboardPage() {
                 <th className="px-6 py-4">Action</th>
                 <th className="px-6 py-4">User</th>
                 <th className="px-6 py-4">Instrument</th>
-                <th className="px-6 py-4">Status</th>
+                <th className="px-6 py-4 text-center">Score</th>
                 <th className="px-6 py-4 text-right">Time</th>
               </tr>
             </thead>
@@ -241,15 +244,14 @@ export default function DashboardPage() {
                   </td>
                   <td className="px-6 py-4">{act.user}</td>
                   <td className="px-6 py-4">{act.instrument || 'N/A'}</td>
-                  <td className="px-6 py-4">
-                    <span className={`px-2 py-1 rounded-md text-[10px] font-bold ${
-                      act.status === 'EXCELLENT' ? 'bg-emerald-100 text-emerald-800' :
-                      act.status === 'GOOD' ? 'bg-emerald-50 text-emerald-700' :
-                      act.status === 'VERIFIED' ? 'bg-primary-container/20 text-primary' :
-                      act.status === 'LOW DISK' ? 'bg-error-container text-on-error-container' :
-                      'bg-surface-container-highest text-on-surface-variant'
+                  <td className="px-6 py-4 text-center">
+                    <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold ${
+                      act.score >= 90 ? 'bg-primary-container/20 text-primary' :
+                      act.score >= 75 ? 'bg-secondary-container/20 text-secondary' :
+                      act.score >= 50 ? 'bg-amber-100 text-amber-800' :
+                      'bg-error-container/20 text-error'
                     }`}>
-                      {act.status}
+                      {act.score !== undefined ? `${act.score}%` : 'N/A'}
                     </span>
                   </td>
                   <td className="px-6 py-4 text-right text-on-surface-variant text-sm">{act.time}</td>

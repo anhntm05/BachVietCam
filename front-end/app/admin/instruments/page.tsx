@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
+import Cookies from 'js-cookie';
 
 interface Instrument {
   _id: string;
@@ -23,7 +24,8 @@ export default function InstrumentsPage() {
     const fetchInstruments = async () => {
       try {
         const apiUrl = process.env.NEXT_PUBLIC_GATEWAY_URL || 'http://localhost:4000';
-        const res = await fetch(`${apiUrl}/api/admin/instruments`);
+        const headers = { Authorization: `Bearer ${Cookies.get('token')}` };
+        const res = await fetch(`${apiUrl}/api/admin/instruments`, { headers });
         if (res.ok) {
           const data = await res.json();
           setInstruments(data);

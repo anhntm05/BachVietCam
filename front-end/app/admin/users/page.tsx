@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
+import Cookies from 'js-cookie';
 
 interface User {
   _id: string;
@@ -22,7 +23,8 @@ export default function UsersPage() {
     const fetchUsers = async () => {
       try {
         const apiUrl = process.env.NEXT_PUBLIC_GATEWAY_URL || 'http://localhost:4000';
-        const res = await fetch(`${apiUrl}/api/admin/users`);
+        const headers = { Authorization: `Bearer ${Cookies.get('token')}` };
+        const res = await fetch(`${apiUrl}/api/admin/users`, { headers });
         if (res.ok) {
           const data = await res.json();
           setUsers(data);

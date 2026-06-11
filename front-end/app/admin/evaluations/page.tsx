@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
+import Cookies from 'js-cookie';
 
 interface UserInfo {
   _id: string;
@@ -30,7 +31,8 @@ export default function EvaluationsPage() {
     const fetchEvaluations = async () => {
       try {
         const apiUrl = process.env.NEXT_PUBLIC_GATEWAY_URL || 'http://localhost:4000';
-        const res = await fetch(`${apiUrl}/api/admin/evaluations`);
+        const headers = { Authorization: `Bearer ${Cookies.get('token')}` };
+        const res = await fetch(`${apiUrl}/api/admin/evaluations`, { headers });
         if (res.ok) {
           const data = await res.json();
           setEvaluations(data);
@@ -109,7 +111,7 @@ export default function EvaluationsPage() {
                     return (
                       <tr 
                         key={evalItem._id} 
-                        className={`hover:bg-surface-container-low/50 transition-colors cursor-pointer group ${isSelected ? 'bg-primary-container/5' : ''}`}
+                        className={`transition-colors cursor-pointer group ${isSelected ? 'bg-primary-container/10' : 'hover:bg-primary-container/5'}`}
                         onClick={() => setSelectedEval(evalItem)}
                       >
                         <td className="px-6 py-4 font-body-md text-body-md text-on-surface">
