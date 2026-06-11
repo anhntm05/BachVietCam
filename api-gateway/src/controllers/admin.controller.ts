@@ -38,7 +38,7 @@ export const getDashboardMetrics = async (_req: Request, res: Response) => {
       totalUsers,
       newUsers,
       evaluationsDone,
-      storageUsedGB: 42.8 // Hardcoded for demo as requested by user template
+      storageUsedMB: 200 // Hardcoded for demo as requested by user template
     });
   } catch (error) {
     res.status(500).json({ error: 'Failed to fetch dashboard metrics' });
