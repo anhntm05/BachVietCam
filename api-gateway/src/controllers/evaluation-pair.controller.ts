@@ -19,9 +19,14 @@ export async function evaluatePairController(req: Request, res: Response) {
   const studentFile = files?.student?.[0];
   const instrumentId = req.body.instrument_id as string | undefined;
 
+  let teacherConvertedPath: string | undefined;
+  let studentConvertedPath: string | undefined;
+
   const cleanup = async () => {
     if (teacherFile) await safeUnlink(teacherFile.path);
     if (studentFile) await safeUnlink(studentFile.path);
+    if (teacherConvertedPath) await safeUnlink(teacherConvertedPath);
+    if (studentConvertedPath) await safeUnlink(studentConvertedPath);
   };
 
   if (!teacherFile || !studentFile) {
@@ -36,11 +41,20 @@ export async function evaluatePairController(req: Request, res: Response) {
   }
 
   try {
+    const { convertToWav } = await import('../utils/audio.util');
+    
+    // Convert ca 2 file sang wav de Python co the xu ly doc lap voi ffmpeg
+    teacherConvertedPath = await convertToWav(teacherFile.path);
+    studentConvertedPath = await convertToWav(studentFile.path);
+
     const result = await requestPairEvaluation(
-      teacherFile.path,
-      studentFile.path,
+      teacherConvertedPath,
+      studentConvertedPath,
       instrumentId
     );
+
+    const { generateAIFeedback } = await import('../services/llm.service');
+    const aiFeedback = await generateAIFeedback(result);
 
     try {
       const { Activity } = await import('../models/Activity');
@@ -56,7 +70,10 @@ export async function evaluatePairController(req: Request, res: Response) {
       console.error('Failed to log activity:', dbErr);
     }
 
-    return res.status(200).json(result);
+    return res.status(200).json({
+      ...result,
+      ai_feedback: aiFeedback
+    });
   } catch (err) {
     if (err instanceof AiServiceError) {
       return res.status(err.status).json({ error: err.message });
