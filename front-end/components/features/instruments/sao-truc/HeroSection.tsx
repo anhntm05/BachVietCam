@@ -1,6 +1,7 @@
 import React from 'react';
 import BackButton from '@/components/ui/BackButton';
 import InstrumentActionButtons from '@/components/features/instruments/general/InstrumentActionButtons';
+import images from '@/public/instrument-images.json';
 
 export default function HeroSection() {
   return (
@@ -26,7 +27,7 @@ export default function HeroSection() {
             <img 
               alt="Sáo Trúc Heritage" 
               className="w-full h-full object-cover rounded-xl shadow-2xl" 
-              src="https://shopguitardanang.com/wp-content/uploads/2019/11/sao-tr%C3%BAc-1.jpg"
+              src={images['sao-truc'].hero}
             />
           </div>
           <div className="absolute -bottom-6 -left-6 glass-panel rounded-xl p-6 max-w-xs shadow-2xl">

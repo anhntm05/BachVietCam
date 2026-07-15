@@ -1,29 +1,36 @@
 import React from 'react';
-import Link from 'next/link';
 import BackButton from '@/components/ui/BackButton';
 import InstrumentActionButtons from '@/components/features/instruments/general/InstrumentActionButtons';
+import images from '@/public/instrument-images.json';
 
 export default function HeroSection() {
   return (
-    <section className="hero-gradient h-full min-h-[85vh] flex flex-col md:flex-row items-center overflow-hidden">
-      <div className="w-full md:w-1/2 px-margin-mobile md:px-margin-desktop py-12 flex flex-col justify-center mt-12 md:mt-0">
-        <BackButton />
-        <div className="flex items-center gap-3 mb-4">
-          <div className="h-px w-12 bg-primary-container"></div>
-          <span className="font-label-sm text-label-sm text-primary tracking-[0.2em] uppercase">Nhạc Cụ Dân Tộc</span>
-        </div>
-        <h1 className="font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-6">ĐÀN NHỊ</h1>
-        <p className="font-body-lg text-body-lg text-on-surface-variant max-w-lg mb-10 leading-relaxed italic">
-          "Tiếng đàn như tiếng tơ lòng, lúc nỉ non sầu thảm, lúc lại réo rắt vui tươi, len lỏi qua từng kẽ lá, chạm đến những miền cảm xúc thẳm sâu nhất của tâm hồn Việt."
-        </p>
+    <section className="hero-gradient w-full py-20 relative z-10">
+      <div className="px-margin-desktop max-w-container-max mx-auto grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
+        <div className="lg:col-span-6 space-y-6">
+          <BackButton />
+          <div className="inline-flex items-center gap-2 text-primary">
+            <span className="material-symbols-outlined text-[18px]">auto_awesome</span>
+            <span className="font-label-sm text-label-sm tracking-widest uppercase">Nhạc Cụ Dân Tộc</span>
+          </div>
+          <h1 className="font-display-lg text-display-lg leading-tight text-on-surface">
+            ĐÀN NHỊ
+          </h1>
+          <p className="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
+            "Tiếng đàn như tiếng tơ lòng, lúc nỉ non sầu thảm, lúc lại réo rắt vui tươi, len lỏi qua từng kẽ lá, chạm đến những miền cảm xúc thẳm sâu nhất của tâm hồn Việt."
+          </p>
           <InstrumentActionButtons studioLink="/studio?instrument=dan_nhi" constructionLink="#cau-tao" />
-      </div>
-      <div className="w-full md:w-1/2 relative h-full md:h-[85vh]">
-        <img
-          className="absolute inset-0 w-full h-full object-cover"
-          alt="A cinematic, high-end photography of a professional Vietnamese Dan Nhi fiddle crafted from polished dark mahogany wood with intricate mother-of-pearl inlays. The instrument is set against a minimalist Light Stone studio background with soft amber side-lighting."
-          src="https://scontent.fhan18-1.fna.fbcdn.net/v/t39.30808-6/615342957_2754369714926791_3833441697048156022_n.jpg?stp=dst-jpg_tt6&cstp=mx1284x1752&ctp=s1284x1752&_nc_cat=104&ccb=1-7&_nc_sid=f727a1&_nc_eui2=AeED7ZT5QR3VV-bIBmWUUjsV84ekRHMQIo_zh6REcxAij2kWQpxDCp4nr998gFJVaT7KHNLjSr3ilTXg5wSfh-xF&_nc_ohc=wDNNr2yif74Q7kNvwFynbXW&_nc_oc=Adp0lE53dto0_wCH6EknQjiATqo3Si7ZYKZDlcCMsdcm6hIJSBei1qWWQgagmXuo7lFbI0IHnUflcCy2Oiy4mV2i&_nc_zt=23&_nc_ht=scontent.fhan18-1.fna&_nc_gid=z6ToscIPcegv1kAd4xraUQ&_nc_ss=7b2a8&oh=00_Af-d8_FUZHkxO7eVJLLhxI64jDE817OsIPbJEy2Nf8fLYw&oe=6A2C040E"
-        />
+        </div>
+        <div className="lg:col-span-6 relative mt-12 lg:mt-0">
+          <div className="aspect-[4/5] rounded-2xl overflow-hidden bg-white/40 backdrop-blur-md p-4 border border-primary-container/20 border-t-2 border-t-primary-container">
+            <img alt="Đàn Nhị" className="w-full h-full object-cover rounded-xl shadow-2xl" 
+            src={images['dan-nhi'].hero} />
+          </div>
+          <div className="absolute -bottom-6 -left-6 bg-white/40 backdrop-blur-md p-6 max-w-xs shadow-2xl border border-primary-container/20 border-t-2 border-t-primary-container rounded-xl">
+            <p className="text-primary font-bold mb-1">Âm sắc thanh tao</p>
+            <p className="text-sm text-on-surface-variant italic">"Tiếng đàn như rót mật vào tai, vừa trang nghiêm vừa trữ tình."</p>
+          </div>
+        </div>
       </div>
     </section>
   );

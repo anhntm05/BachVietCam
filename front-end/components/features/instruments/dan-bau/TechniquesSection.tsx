@@ -1,4 +1,5 @@
 import React from 'react';
+import images from '@/public/instrument-images.json';
 
 export default function TechniquesSection() {
   return (
@@ -7,7 +8,7 @@ export default function TechniquesSection() {
         <div className="w-full md:w-1/2 relative">
           <div className="absolute -top-10 -left-10 w-40 h-40 bg-primary-container/20 rounded-full blur-3xl"></div>
           <div className="relative z-10 bg-surface-container rounded-2xl p-1 aspect-video shadow-2xl overflow-hidden">
-            <img alt="Nghệ sĩ biểu diễn đàn bầu" className="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_eV5XbxzCBYIBKpN1wuTUouaKAVataEvcxBI-8-966S8e2HoTN6TB_-xk5byhXx0XjlhDPR-bhm8llXn47rqJYmwg9WTNkvF86tvkobRW9vZNHZoV-f8FmQoOyEqXaWHjh1iF7heUuUZM0vv7HjVMMjjRRhugCA64Mi_1VZuul3Zn7aaNIAR2EmVhzmXDQa7vhkKbTv3C4trgXoztY_sSFo-B4poG5i8Q1o4cdGzksSxUwOaE0e3aLDndYKdXPV8WzgRgjuWzrm9Y" />
+            <img alt="Nghệ sĩ biểu diễn đàn bầu" className="w-full h-full object-cover" src={images['dan-bau'].technique_tutorial} />
             <div className="absolute inset-0 bg-gradient-to-t from-on-surface/60 to-transparent flex items-end p-8">
               <button className="bg-white/20 backdrop-blur-md p-4 rounded-full hover:bg-white/40 transition-all border border-white/30">
                 <span className="material-symbols-outlined text-white text-4xl">play_arrow</span>

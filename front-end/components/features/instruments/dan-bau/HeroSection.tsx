@@ -1,6 +1,7 @@
 import React from 'react';
 import BackButton from '@/components/ui/BackButton';
 import InstrumentActionButtons from '@/components/features/instruments/general/InstrumentActionButtons';
+import images from '@/public/instrument-images.json';
 
 export default function HeroSection() {
   return (
@@ -29,7 +30,7 @@ export default function HeroSection() {
           <img
             alt="Dan Bau instrument in warm studio lighting"
             className="w-full h-full object-cover object-center z-20 relative transition-transform duration-700 group-hover:scale-105"
-            src="https://traveldaily.com.vn/wp-content/uploads/2020/09/dan-bau.jpg" />
+            src={images['dan-bau'].hero} />
         </div>
       </div>
     </section>

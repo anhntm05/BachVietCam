@@ -1,10 +1,11 @@
 import React from 'react';
+import images from '@/public/instrument-images.json';
 
 export default function InstrumentsHero() {
   return (
     <section className="relative min-h-[50vh] flex items-center justify-center overflow-hidden px-margin-desktop">
       <div className="absolute inset-0 z-0">
-        <img alt="Traditional Vietnamese tapestry" className="w-full h-full object-cover opacity-20" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMw0lALXxByRSbbYdM4aF04WTf_OUCRTYJpTru2GMKDRkQu4aAYf7buq-dhcsdsrn0odBcCa9IcVdriGqvl_bQnv99M_ft4qyo2JwP8bu-OZ63EFFmx4gOAhsOighLKb-6StMzToCqWkqXfDGzQqg7NM8AXUFnWdYkuqhAkgKSNnHnX5fzWxnud0lYkBP8OeqMLwl75gkPW88IKXOdrJsTgm_JioXJ_GT-jvRzvYsvn3x6APpp11muAwcahmCLwko2Yr2HRad8caR6" />
+        <img alt="Traditional Vietnamese tapestry" className="w-full h-full object-cover opacity-20" src={images.general.tapestry} />
         <div className="absolute inset-0 bg-gradient-to-b from-surface/80 via-transparent to-surface"></div>
         <div className="lacquer-overlay absolute inset-0"></div>
       </div>

@@ -27,10 +27,9 @@ export const getEvaluations = async (_req: Request, res: Response) => {
 export const getDashboardMetrics = async (_req: Request, res: Response) => {
   try {
     const totalUsers = await User.countDocuments();
-    // For demo purposes, we define 'newUsers' as those joined in last 30 days
-    const thirtyDaysAgo = new Date();
-    thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
-    const newUsers = await User.countDocuments({ joinDate: { $gte: thirtyDaysAgo } });
+    const startOfDay = new Date();
+    startOfDay.setHours(0, 0, 0, 0);
+    const newUsers = await User.countDocuments({ joinDate: { $gte: startOfDay } });
     
     const evaluationsDone = await Evaluation.countDocuments();
     
@@ -45,9 +44,33 @@ export const getDashboardMetrics = async (_req: Request, res: Response) => {
   }
 };
 
+const formatExactTime = (date: Date) => {
+  const pad = (n: number) => n.toString().padStart(2, '0');
+  const hh = pad(date.getHours());
+  const mm = pad(date.getMinutes());
+  const dd = pad(date.getDate());
+  const MM = pad(date.getMonth() + 1);
+  const yyyy = date.getFullYear();
+  return `${hh}:${mm} ${dd}/${MM}/${yyyy}`;
+};
+
 export const getActivities = async (_req: Request, res: Response) => {
   try {
-    const activities = await Activity.find().sort({ createdAt: -1 }).limit(10);
+    const evaluations = await Evaluation.find()
+      .populate('user', 'name')
+      .sort({ timestamp: -1 })
+      .limit(10);
+      
+    const activities = evaluations.map(evalDoc => ({
+      _id: evalDoc._id,
+      action: 'AI Evaluation',
+      user: (evalDoc.user as any)?.name || 'Unknown User',
+      instrument: evalDoc.instrument,
+      score: evalDoc.score,
+      time: formatExactTime(evalDoc.timestamp),
+      icon: 'psychology'
+    }));
+
     res.json(activities);
   } catch (error) {
     res.status(500).json({ error: 'Failed to fetch activities' });

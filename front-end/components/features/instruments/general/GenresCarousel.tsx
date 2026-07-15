@@ -14,11 +14,15 @@ interface GenresCarouselProps {
   title?: string;
   subtitle?: string;
   genres: Genre[];
+  bgClass?: string;
+  isDark?: boolean;
 }
 export default function GenresCarousel({
   title = "Hồn Nhạc Trong Từng Thể Loại",
   subtitle,
-  genres
+  genres,
+  bgClass = "",
+  isDark = false
 }: GenresCarouselProps) {
   const [activeIndex, setActiveIndex] = useState(1);
 
@@ -45,21 +49,22 @@ export default function GenresCarousel({
   };
 
   return (
-    <section className="px-margin-desktop py-20 max-w-container-max mx-auto overflow-visible">
-      <div className="text-center mb-16 relative">
-        <h3 className="font-headline-md text-headline-md text-on-surface mb-4">{title}</h3>
-        {subtitle && <p className="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">{subtitle}</p>}
-        
-        {/* Navigation Buttons */}
-        <div className="absolute top-1/2 -translate-y-1/2 left-0 right-0 hidden md:flex justify-between pointer-events-none px-4">
-          <button onClick={handlePrev} className="pointer-events-auto bg-surface p-3 rounded-full shadow-lg border border-outline-variant hover:bg-primary-container hover:text-white transition-colors z-40 relative group -ml-12">
-            <span className="material-symbols-outlined transition-transform group-hover:-translate-x-1">arrow_back</span>
-          </button>
-          <button onClick={handleNext} className="pointer-events-auto bg-surface p-3 rounded-full shadow-lg border border-outline-variant hover:bg-primary-container hover:text-white transition-colors z-40 relative group -mr-12">
-            <span className="material-symbols-outlined transition-transform group-hover:translate-x-1">arrow_forward</span>
-          </button>
+    <section className={`py-24 relative overflow-hidden ${bgClass}`}>
+      <div className="px-margin-desktop max-w-container-max mx-auto overflow-visible">
+        <div className="text-center mb-16 relative">
+          <h3 className={`font-headline-md text-headline-md mb-4 ${isDark ? 'text-primary-fixed' : 'text-on-surface'}`}>{title}</h3>
+          {subtitle && <p className={`font-body-lg text-body-lg max-w-2xl mx-auto ${isDark ? 'text-surface-variant' : 'text-on-surface-variant'}`}>{subtitle}</p>}
+          
+          {/* Navigation Buttons */}
+          <div className="absolute top-1/2 -translate-y-1/2 left-0 right-0 hidden md:flex justify-between pointer-events-none px-4">
+            <button onClick={handlePrev} className={`pointer-events-auto p-3 rounded-full shadow-lg border transition-colors z-40 relative group -ml-12 ${isDark ? 'bg-surface-container-high text-white border-outline/30 hover:bg-primary-container hover:text-white' : 'bg-surface border-outline-variant hover:bg-primary-container hover:text-white'}`}>
+              <span className="material-symbols-outlined transition-transform group-hover:-translate-x-1">arrow_back</span>
+            </button>
+            <button onClick={handleNext} className={`pointer-events-auto p-3 rounded-full shadow-lg border transition-colors z-40 relative group -mr-12 ${isDark ? 'bg-surface-container-high text-white border-outline/30 hover:bg-primary-container hover:text-white' : 'bg-surface border-outline-variant hover:bg-primary-container hover:text-white'}`}>
+              <span className="material-symbols-outlined transition-transform group-hover:translate-x-1">arrow_forward</span>
+            </button>
+          </div>
         </div>
-      </div>
 
       <div className="carousel-perspective relative h-[500px] flex items-center justify-center">
         <div className="flex items-center justify-center w-full max-w-5xl relative gap-0 md:gap-4 h-full">
@@ -103,6 +108,7 @@ export default function GenresCarousel({
             />
           ))}
         </div>
+      </div>
       </div>
     </section>
   );

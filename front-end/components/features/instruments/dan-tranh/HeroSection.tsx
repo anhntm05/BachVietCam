@@ -1,6 +1,7 @@
 import React from 'react';
 import BackButton from '@/components/ui/BackButton';
 import InstrumentActionButtons from '@/components/features/instruments/general/InstrumentActionButtons';
+import images from '@/public/instrument-images.json';
 
 export default function HeroSection() {
   return (
@@ -26,7 +27,7 @@ export default function HeroSection() {
             <img 
               alt="Đàn Tranh Heritage" 
               className="w-full h-full object-cover rounded-xl shadow-2xl" 
-              src="https://lh3.googleusercontent.com/aida/AP1WRLvxbN8V_WnpwWKH5RuZnZuPkK5IeWQonjvc03kW6k06-m1lI1juSSYZvvdR-WpNz8yDJHNZe5B9T1_3jldW5oxZSDBKupo5mQycM3WRIgHLa2f6V4QWoH_aqFDFNFreN-83EsfEnp6G16SbB272w7M_jKDDuS53FWB4oRW1qW_VLn0M3LtdmluV6LVpAqKcEnJg4Lp17IPIN1Um50t0o8TTc87SMcugF0QuMmerUDzpE_6KbDumamOJ2TA"
+              src={images['dan-tranh'].hero}
             />
           </div>
           <div className="absolute -bottom-6 -left-6 glass-panel rounded-xl p-6 max-w-xs shadow-2xl">
