@@ -28,6 +28,13 @@ const DAN_NGUYET_GENRES: Genre[] = [
     desc: 'Đàn Nguyệt mang âm sắc trữ tình, hào sảng trong dòng chảy âm nhạc dân gian đặc thù của vùng đất phương Nam.',
     img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuD-dMZD0Yp06itAbnpJ52SbJMLltBYZZYPSkBb5FhaStMX0DldqobU_xnqrHP66NLMncsTyMKKM9rNY06nGzYR5dDrnuywDiZ15SepPA88Q-oh31yJ_nvyTGfz-SwPRDVXQs3DcWs7ssTdB_yDyVYb1v1jp6UHH4lhefv3tCKAASOLq0H2opYz2gB3ed7xyxxA60QJ8wnIpsSVexVcOFiNBSi6GINazGDhaUxzdSgU-qedpLst6__AMC1XcuInwVx9GJYMubQoUZm_v',
     tag: ''
+  },
+  {
+    id: 'cheo',
+    title: 'Chèo & Cải Lương',
+    desc: 'Âm sắc mặn mà, luyến láy đặc trưng cho các vở kịch hát truyền thống.',
+    img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBt3dCPLG9E7-YkwSbKT_fgZR4WSNpMB2JjkDyVytgeEfw86tts37HAZ3_a3EpSVgt3iii_sNzJNwJLt6eXkfDGGGTEMYKlEyJvarm_LV91029GR5Hcrj0j1UYf1PGEoxHOcp3fMFKWgOH06flRykURC0XtRN9urE7KcGdUHpXE2y67pvFEkUCSX0WiW37ZGdZpnnXlkGuB4lNPBUCfIuraV3VghInTxM0U1DZACzqQ_b4L-ivLXgQmmtRzjZK7Bq83YEPdSEGoYfW9',
+    tag: ''
   }
 ];
 
