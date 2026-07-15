@@ -81,8 +81,19 @@ export interface PairEvaluationResult {
   mean_deviation_cents: number | null;
   total_voiced_frames: number;
   passed_frames: number;
-  teacher_tempo_bpm: number;
-  student_tempo_bpm: number;
+  tempo_bpm?: number;
+  teacher_tempo_bpm?: number;
+  student_tempo_bpm?: number;
+  error_segments?: Array<{
+    start_time: number;
+    end_time: number;
+    avg_cents_diff: number;
+  }>;
+  rhythm_segments?: Array<{
+    start_time: number;
+    end_time: number;
+    status: 'fast' | 'slow' | 'missing';
+  }>;
   instrument: string;
 }
 

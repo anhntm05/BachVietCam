@@ -38,5 +38,8 @@ export const config = {
   corsOrigin: process.env.CORS_ORIGIN === '*' ? '*' : (process.env.CORS_ORIGIN ? process.env.CORS_ORIGIN.split(',') : 'http://localhost:3000'),
 
   mongoUri: process.env.MONGODB_URI,
+  
+  // Google Gemini API Key
+  geminiApiKey: process.env.GEMINI_API_KEY || '',
 };
 

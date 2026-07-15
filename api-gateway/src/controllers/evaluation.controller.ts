@@ -22,8 +22,13 @@ export async function evaluateController(req: Request, res: Response) {
     return res.status(400).json({ error: 'Thieu instrument_id' });
   }
 
+  let convertedPath: string | undefined;
+
   try {
-    const result = await requestEvaluation(file.path, instrumentId);
+    const { convertToWav } = await import('../utils/audio.util');
+    convertedPath = await convertToWav(file.path);
+
+    const result = await requestEvaluation(convertedPath, instrumentId);
     
     try {
       const { Activity } = await import('../models/Activity');
@@ -49,6 +54,7 @@ export async function evaluateController(req: Request, res: Response) {
       .json({ error: `Loi gateway: ${(err as Error).message}` });
   } finally {
     await safeUnlink(file.path);
+    if (convertedPath) await safeUnlink(convertedPath);
   }
 }
 

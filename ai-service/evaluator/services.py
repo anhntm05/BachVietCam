@@ -79,29 +79,134 @@ def score_pitch(f0_student, f0_teacher, tolerance_cents):
     total = 0
     passed = 0
     deviations = []
+    
+    # Tracking cho error segments
+    error_segments = []
+    current_segment = None
 
     for s_idx, t_idx in wp:
         f_t = f0_teacher[t_idx]
         if np.isnan(f_t):
+            # Frame giao vien im lang -> ket thuc segment loi hien tai neu co
+            if current_segment is not None:
+                error_segments.append(current_segment)
+                current_segment = None
             continue
+            
         total += 1
         f_s = f0_student[s_idx]
         if np.isnan(f_s):
-            # Giao vien co tieng ma hoc vien im lang: tinh la sai.
+            # Giao vien co tieng ma hoc vien im lang: tinh la sai, ket thuc segment
+            if current_segment is not None:
+                error_segments.append(current_segment)
+                current_segment = None
             continue
-        diff = abs(cents_diff(f_s, f_t))
+            
+        diff_raw = cents_diff(f_s, f_t) # diff_raw > 0 -> hoc vien danh cao hon (cang day)
+        diff = abs(diff_raw)
         deviations.append(diff)
+        
+        time_sec = t_idx * HOP_LENGTH / SAMPLE_RATE
+        
         if diff <= tolerance_cents:
             passed += 1
+            if current_segment is not None:
+                error_segments.append(current_segment)
+                current_segment = None
+        else:
+            if current_segment is None:
+                current_segment = {
+                    "start_time": time_sec,
+                    "end_time": time_sec,
+                    "diffs": [diff_raw]
+                }
+            else:
+                current_segment["end_time"] = time_sec
+                current_segment["diffs"].append(diff_raw)
+                
+    if current_segment is not None:
+        error_segments.append(current_segment)
 
     accuracy = (passed / total * 100.0) if total else 0.0
     mean_dev = float(np.mean(deviations)) if deviations else None
+    
+    # Process error segments: keep segments longer than 0.3s, compute avg
+    processed_segments = []
+    for seg in error_segments:
+        duration = seg["end_time"] - seg["start_time"]
+        if duration >= 0.3:
+            avg_diff = float(np.mean(seg["diffs"]))
+            processed_segments.append({
+                "start_time": round(float(seg["start_time"]), 2),
+                "end_time": round(float(seg["end_time"]), 2),
+                "avg_cents_diff": round(avg_diff, 2)
+            })
+            
+    # Sort by absolute severity and keep top 5
+    processed_segments.sort(key=lambda x: abs(x["avg_cents_diff"]), reverse=True)
+    top_segments = processed_segments[:5]
+
+    # Phân tích nhịp (Rhythm analysis)
+    rhythm_segments = []
+    chunk_sec = 2.0
+    chunk_frames = int(chunk_sec * SAMPLE_RATE / HOP_LENGTH)
+    
+    if len(wp) > 0:
+        max_t_idx = max(t for s, t in wp)
+        num_chunks = max_t_idx // chunk_frames + 1
+        
+        for i in range(num_chunks):
+            start_t = i * chunk_frames
+            end_t = (i + 1) * chunk_frames
+            
+            chunk_wp = [(s, t) for s, t in wp if start_t <= t < end_t]
+            if not chunk_wp:
+                continue
+                
+            t_voiced = sum(1 for s, t in chunk_wp if not np.isnan(f0_teacher[t]))
+            if t_voiced < chunk_frames * 0.2:
+                # Giao vien chu yeu im lang doan nay, bo qua
+                continue
+                
+            s_indices = [s for s, t in chunk_wp]
+            s_min, s_max = min(s_indices), max(s_indices)
+            s_missing = sum(1 for s, t in chunk_wp if not np.isnan(f0_teacher[t]) and np.isnan(f0_student[s]))
+            
+            start_time = round(start_t * HOP_LENGTH / SAMPLE_RATE, 2)
+            end_time = round(min(end_t, max_t_idx) * HOP_LENGTH / SAMPLE_RATE, 2)
+            
+            if s_missing > t_voiced * 0.5:
+                rhythm_segments.append({
+                    "start_time": start_time,
+                    "end_time": end_time,
+                    "status": "missing"
+                })
+                continue
+            
+            t_duration = len(set(t for s, t in chunk_wp))
+            s_duration = s_max - s_min + 1
+            if t_duration > 0:
+                ratio = s_duration / t_duration
+                if ratio > 1.3:
+                    rhythm_segments.append({
+                        "start_time": start_time,
+                        "end_time": end_time,
+                        "status": "slow"
+                    })
+                elif ratio < 0.75:
+                    rhythm_segments.append({
+                        "start_time": start_time,
+                        "end_time": end_time,
+                        "status": "fast"
+                    })
 
     return {
         "pitch_accuracy_percent": round(accuracy, 2),
         "mean_deviation_cents": round(mean_dev, 2) if mean_dev is not None else None,
         "total_voiced_frames": total,
         "passed_frames": passed,
+        "error_segments": top_segments,
+        "rhythm_segments": rhythm_segments,
     }
 
 
