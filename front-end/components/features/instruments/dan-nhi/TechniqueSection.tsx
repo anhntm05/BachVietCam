@@ -1,4 +1,5 @@
 import React from 'react';
+import images from '@/public/instrument-images.json';
 
 export default function TechniqueSection() {
   return (
@@ -12,7 +13,7 @@ export default function TechniqueSection() {
           
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center mt-6">
             <div className="lg:col-span-6 relative aspect-video bg-surface-container-highest rounded-2xl overflow-hidden shadow-lg flex items-center justify-center group/video">
-              <img alt="Tutorial" className="absolute inset-0 w-full h-full object-cover opacity-60 transition-transform duration-700 group-hover/video:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAvWNdk4somAtiyX12Ky_H_1Zvy0EoMUFazqgkREXwCjIBYVry32Bu3L8o8rMXQ0PHHOju9pWpB6piV7DscxLcjA6UqmqUo-RY3iymboMl-T20JmTIbEIcApZxuieKISJwALbMTct4wEnDfpzeuHJhOT_UqxQlN1afDSDd0gwQmWP8DEVOlnJz-psftoxNkbMSuD6WvX549b1Ijm_rytBE-HS6NGaDzu63CjU2czW6wHHq3nQjSz94QNroLLpsRrLXPvwJKhKJQufY5" />
+              <img alt="Tutorial" className="absolute inset-0 w-full h-full object-cover opacity-60 transition-transform duration-700 group-hover/video:scale-110" src={images['dan-nhi'].technique_tutorial} />
               <div className="z-10 bg-white/20 backdrop-blur-md p-6 rounded-full border border-white/40 cursor-pointer hover:scale-110 transition-transform">
                 <span className="material-symbols-outlined text-white text-5xl">play_arrow</span>
               </div>

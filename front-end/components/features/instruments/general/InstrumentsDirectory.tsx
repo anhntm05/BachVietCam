@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import images from '@/public/instrument-images.json';
 
 const INSTRUMENTS_DATA = [
   {
@@ -10,7 +11,7 @@ const INSTRUMENTS_DATA = [
     category: 'string',
     categoryLabel: 'Bộ Dây',
     desc: '"Tiếng đàn bầu, cung thanh là tiếng mẹ, cung trầm là giọng cha." Nhạc cụ độc huyền với âm sắc u huyền và sâu lắng bậc nhất tâm hồn Việt.',
-    image: 'https://traveldaily.com.vn/wp-content/uploads/2020/09/dan-bau.jpg',
+    image: images['dan-bau'].hero,
     altText: 'Đàn Bầu',
   },
   {
@@ -19,7 +20,7 @@ const INSTRUMENTS_DATA = [
     category: 'string',
     categoryLabel: 'Bộ Dây',
     desc: 'Cây vĩ cầm của Á Đông, sở hữu âm sắc biểu cảm tương tự giọng hát con người. Từ tiếng than vãn nỉ non đến những giai điệu rộn rã đón xuân.',
-    image: 'https://scontent.fhan18-1.fna.fbcdn.net/v/t39.30808-6/615342957_2754369714926791_3833441697048156022_n.jpg?stp=dst-jpg_tt6&cstp=mx1284x1752&ctp=s1284x1752&_nc_cat=104&ccb=1-7&_nc_sid=f727a1&_nc_eui2=AeED7ZT5QR3VV-bIBmWUUjsV84ekRHMQIo_zh6REcxAij2kWQpxDCp4nr998gFJVaT7KHNLjSr3ilTXg5wSfh-xF&_nc_ohc=wDNNr2yif74Q7kNvwFynbXW&_nc_oc=Adp0lE53dto0_wCH6EknQjiATqo3Si7ZYKZDlcCMsdcm6hIJSBei1qWWQgagmXuo7lFbI0IHnUflcCy2Oiy4mV2i&_nc_zt=23&_nc_ht=scontent.fhan18-1.fna&_nc_gid=z6ToscIPcegv1kAd4xraUQ&_nc_ss=7b2a8&oh=00_Af-d8_FUZHkxO7eVJLLhxI64jDE817OsIPbJEy2Nf8fLYw&oe=6A2C040E',
+    image: images['dan-nhi'].hero,
     altText: 'Đàn Nhị',
   },
   {
@@ -28,7 +29,7 @@ const INSTRUMENTS_DATA = [
     category: 'string',
     categoryLabel: 'Bộ Dây',
     desc: 'Sự kết hợp hoàn hảo giữa kỹ thuật gảy điêu luyện và âm sắc lanh lảnh như tiếng suối reo. Một biểu tượng của sự thanh cao và quý tộc.',
-    image: 'https://lh3.googleusercontent.com/aida/AP1WRLvxbN8V_WnpwWKH5RuZnZuPkK5IeWQonjvc03kW6k06-m1lI1juSSYZvvdR-WpNz8yDJHNZe5B9T1_3jldW5oxZSDBKupo5mQycM3WRIgHLa2f6V4QWoH_aqFDFNFreN-83EsfEnp6G16SbB272w7M_jKDDuS53FWB4oRW1qW_VLn0M3LtdmluV6LVpAqKcEnJg4Lp17IPIN1Um50t0o8TTc87SMcugF0QuMmerUDzpE_6KbDumamOJ2TA',
+    image: images['dan-tranh'].hero,
     altText: 'Đàn Tranh',
   },
   {
@@ -37,7 +38,7 @@ const INSTRUMENTS_DATA = [
     category: 'wind',
     categoryLabel: 'Bộ Hơi',
     desc: 'Hơi thở của đồng nội, thanh âm của gió ngàn. Mang trong mình linh hồn của làng quê Việt Nam qua hàng ngàn năm lịch sử.',
-    image: 'https://shopguitardanang.com/wp-content/uploads/2019/11/sao-tr%C3%BAc-1.jpg',
+    image: images['sao-truc'].hero,
     altText: 'Sáo Trúc',
   },
   {
@@ -46,7 +47,7 @@ const INSTRUMENTS_DATA = [
     category: 'string',
     categoryLabel: 'Bộ Dây',
     desc: 'Nhạc cụ hình trăng rằm, giữ vai trò quan trọng trong nhạc tài tử, chèo và chầu văn. Âm thanh tươi sáng, rộn ràng mà vẫn rất đỗi trang trọng.',
-    image: 'https://lirp.cdn-website.com/46b951bd/dms3rep/multi/opt/maxresdefault%20(1)-1280x720-1920w.jpg',
+    image: images['dan-nguyet'].hero,
     altText: 'Đàn Nguyệt',
   },
   {
@@ -55,7 +56,7 @@ const INSTRUMENTS_DATA = [
     category: 'string',
     categoryLabel: 'Bộ Dây',
     desc: 'Nhạc cụ hình quả lê, biểu tượng của vẻ đẹp cổ điển và quý phái. Thường xuất hiện trong các dàn nhạc cung đình và hòa tấu nghệ thuật cao.',
-    image: 'https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-ly1p0dnpdom1e7',
+    image: images['dan-ty-ba'].hero,
     altText: 'Đàn Tì Bà',
   },
 ];

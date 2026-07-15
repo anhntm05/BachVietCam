@@ -7,33 +7,35 @@ import HistorySection from '@/components/features/instruments/dan-nguyet/History
 import AnatomySection from '@/components/features/instruments/dan-nguyet/AnatomySection';
 import TechniquesSection from '@/components/features/instruments/dan-nguyet/TechniquesSection';
 
+import images from '@/public/instrument-images.json';
+
 const DAN_NGUYET_GENRES: Genre[] = [
   {
     id: 'cai-luong',
     title: 'Cải Lương',
     desc: 'Tiếng đàn gõ nhịp phách, hòa quyện cùng giọng hát uyển chuyển trong không gian văn hóa bác học miền Bắc.',
-    img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDUs2lyWbtqC2Us9EmItTK9S-eX15siGqVfmqIPHfFFI6PjXdHkodfRaDkZpIqmzO__wpflrClaoLsp89Xq_dm9SaVpSkdUssdMZUUHLf0SVUuYOoVxkaPx1HYiTgzpGl6areZvnmqgEwxVo9h25ga_yGYsuWkPs38brFE2tTLwoNbepBmHYW8I9PrS12qPjipXr1oKVgkZqZQ_zhH79jC4v8Re_0vEl1jjIND09YWALV9xKaOM6Q2hPek_K7csBzgpawYULlrAnNMh',
+    img: images['dan-nguyet'].genre_cai_luong,
     tag: ''
   },
   {
     id: 'hat-van',
     title: 'Hát Văn (Hầu Đồng)',
     desc: 'Đàn Nguyệt là nhạc cụ chủ chốt tạo nên không khí linh thiêng, rộn rã trong các buổi hầu đồng, dẫn dắt cảm xúc người tham dự.',
-    img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDJPSAwwnhiuS0RojY-3GR42Np5Hf6OVL2TOvj5s0M_cPQPGqBDxUgLDs1obwnb1ofqec5MW6V8IpNH9Gf97GU9lbasdgBrJHw2t3Qh86Yq6MnBV8cxZ6mplAvJSc3MHjpVwWXtapJju184xnPCvJai4nahsuGJruSw2D74fUebx39sDUxKDQuOWW2_K0ayuNgIP-oGLHszivTwQpqnuzSaXt-qp4d-12pbdJXkLoUbSJATZbdSld2dlbgTONOqGH3QEWgcNobeLZ7N',
+    img: images['dan-nguyet'].genre_hat_van,
     tag: 'Tiêu Điểm'
   },
   {
     id: 'don-ca-tai-tu',
     title: 'Đờn Ca Tài Tử Nam Bộ',
     desc: 'Đàn Nguyệt mang âm sắc trữ tình, hào sảng trong dòng chảy âm nhạc dân gian đặc thù của vùng đất phương Nam.',
-    img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuD-dMZD0Yp06itAbnpJ52SbJMLltBYZZYPSkBb5FhaStMX0DldqobU_xnqrHP66NLMncsTyMKKM9rNY06nGzYR5dDrnuywDiZ15SepPA88Q-oh31yJ_nvyTGfz-SwPRDVXQs3DcWs7ssTdB_yDyVYb1v1jp6UHH4lhefv3tCKAASOLq0H2opYz2gB3ed7xyxxA60QJ8wnIpsSVexVcOFiNBSi6GINazGDhaUxzdSgU-qedpLst6__AMC1XcuInwVx9GJYMubQoUZm_v',
+    img: images['dan-nguyet'].genre_don_ca_tai_tu,
     tag: ''
   },
   {
     id: 'cheo',
     title: 'Chèo & Cải Lương',
     desc: 'Âm sắc mặn mà, luyến láy đặc trưng cho các vở kịch hát truyền thống.',
-    img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBt3dCPLG9E7-YkwSbKT_fgZR4WSNpMB2JjkDyVytgeEfw86tts37HAZ3_a3EpSVgt3iii_sNzJNwJLt6eXkfDGGGTEMYKlEyJvarm_LV91029GR5Hcrj0j1UYf1PGEoxHOcp3fMFKWgOH06flRykURC0XtRN9urE7KcGdUHpXE2y67pvFEkUCSX0WiW37ZGdZpnnXlkGuB4lNPBUCfIuraV3VghInTxM0U1DZACzqQ_b4L-ivLXgQmmtRzjZK7Bq83YEPdSEGoYfW9',
+    img: images['dan-nguyet'].genre_cheo,
     tag: ''
   }
 ];

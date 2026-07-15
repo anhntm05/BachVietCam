@@ -1,6 +1,7 @@
 import React from 'react';
 import BackButton from '@/components/ui/BackButton';
 import InstrumentActionButtons from '@/components/features/instruments/general/InstrumentActionButtons';
+import images from '@/public/instrument-images.json';
 
 export default function HeroSection() {
   return (
@@ -33,7 +34,7 @@ export default function HeroSection() {
           <img 
             alt="Đàn Tỳ Bà" 
             className="w-full h-full object-cover object-center z-20 relative transition-transform duration-700 group-hover:scale-105" 
-            src="https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-ly1p0dnpdom1e7"
+            src={images['dan-ty-ba'].hero}
           />
         </div>
       </div>
