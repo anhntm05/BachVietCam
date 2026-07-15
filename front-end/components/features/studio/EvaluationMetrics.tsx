@@ -8,6 +8,7 @@ export interface EvaluationResult {
     passed_frames: number;
     teacher_tempo_bpm: number;
     student_tempo_bpm: number;
+    ai_feedback?: string;
 }
 
 export function getScoreTheme(score: number) {
@@ -91,6 +92,23 @@ export default function EvaluationMetrics({ result }: EvaluationMetricsProps) {
                     </div>
                 </div>
             </div>
+
+            {/* AI Feedback Section */}
+            {result.ai_feedback && (
+                <div className="mt-6 pt-6 border-t border-dashed border-outline-variant/40">
+                    <div className="flex items-start gap-4">
+                        <div className="w-10 h-10 shrink-0 rounded-full bg-primary/10 flex items-center justify-center border border-primary/20">
+                            <span className="material-symbols-outlined text-primary text-[24px]">robot_2</span>
+                        </div>
+                        <div className="flex-grow">
+                            <h4 className="font-label-md text-primary uppercase tracking-wider mb-2 font-bold">Giáo viên AI nhận xét</h4>
+                            <div className="bg-surface/50 rounded-xl p-4 border border-primary/10 text-on-surface text-body-md whitespace-pre-wrap leading-relaxed italic">
+                                "{result.ai_feedback}"
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
         </div>
     );
 }
