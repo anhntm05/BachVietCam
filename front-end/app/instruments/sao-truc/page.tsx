@@ -13,20 +13,20 @@ const saoTrucGenres = [
     id: 'nhac_dan_gian',
     title: 'Nhạc Dân Gian',
     desc: 'Âm hưởng đồng quê Việt Nam với những làn điệu dân ca ngọt ngào và mộc mạc nhất.',
-    img: images['sao-truc'].genre_nhac_dan_gian
+    img: images.genres['sao-truc'].nhac_dan_gian
   },
   {
     id: 'cheo',
     title: 'Nghệ thuật Chèo',
     desc: 'Tiếng sáo trong dàn nhạc Chèo không chỉ giữ nhịp mà còn lột tả được những cung bậc hỉ nộ ái ố của nhân vật.',
-    img: images['sao-truc'].genre_cheo,
+    img: images.genres['sao-truc'].cheo,
     tag: 'Tiêu Điểm'
   },
   {
     id: 'cai_luong',
     title: 'Cải Lương',
     desc: 'Giai điệu luyến láy đặc trưng của sáo trúc tạo nên linh hồn cho những câu vọng cổ thiết tha.',
-    img: images['sao-truc'].genre_cai_luong
+    img: images.genres['sao-truc'].cai_luong
   }
 ];
 

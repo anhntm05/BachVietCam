@@ -14,28 +14,28 @@ const DAN_NGUYET_GENRES: Genre[] = [
     id: 'cai-luong',
     title: 'Cải Lương',
     desc: 'Tiếng đàn gõ nhịp phách, hòa quyện cùng giọng hát uyển chuyển trong không gian văn hóa bác học miền Bắc.',
-    img: images['dan-nguyet'].genre_cai_luong,
+    img: images.genres['dan-nguyet'].cai_luong,
     tag: ''
   },
   {
     id: 'hat-van',
     title: 'Hát Văn (Hầu Đồng)',
     desc: 'Đàn Nguyệt là nhạc cụ chủ chốt tạo nên không khí linh thiêng, rộn rã trong các buổi hầu đồng, dẫn dắt cảm xúc người tham dự.',
-    img: images['dan-nguyet'].genre_hat_van,
+    img: images.genres['dan-nguyet'].hat_van,
     tag: 'Tiêu Điểm'
   },
   {
     id: 'don-ca-tai-tu',
     title: 'Đờn Ca Tài Tử Nam Bộ',
     desc: 'Đàn Nguyệt mang âm sắc trữ tình, hào sảng trong dòng chảy âm nhạc dân gian đặc thù của vùng đất phương Nam.',
-    img: images['dan-nguyet'].genre_don_ca_tai_tu,
+    img: images.genres['dan-nguyet'].don_ca_tai_tu,
     tag: ''
   },
   {
     id: 'cheo',
     title: 'Chèo & Cải Lương',
     desc: 'Âm sắc mặn mà, luyến láy đặc trưng cho các vở kịch hát truyền thống.',
-    img: images['dan-nguyet'].genre_cheo,
+    img: images.genres['dan-nguyet'].cheo,
     tag: ''
   }
 ];

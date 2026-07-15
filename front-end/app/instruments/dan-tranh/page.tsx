@@ -12,20 +12,20 @@ const tranhGenres = [
     id: 'nhac_tai_tu',
     title: 'Nhạc Tài Tử',
     desc: 'Dòng nhạc thâm trầm của những tâm hồn tri kỷ phương Nam, nơi tiếng tranh hòa quyện cùng bầu, kìm.',
-    img: images['dan-tranh'].genre_nhac_tai_tu
+    img: images.genres['dan-tranh'].nhac_tai_tu
   },
   {
     id: 'cai_luong',
     title: 'Cải Lương',
     desc: 'Giai điệu cải biên rộn rã, thổi hồn đương đại vào những tuồng tích cổ, tiếng Đàn Tranh giữ nhịp dẫn dắt vở diễn.',
-    img: images['dan-tranh'].genre_cai_luong,
+    img: images.genres['dan-tranh'].cai_luong,
     tag: 'Tiêu Điểm'
   },
   {
     id: 'nha_nhac',
     title: 'Nhã Nhạc',
     desc: 'Âm nhạc bác học đỉnh cao của triều đình Huế, nơi Đàn Tranh phô diễn sắc thái trang trọng, uy nghi nhất.',
-    img: images['dan-tranh'].genre_nha_nhac
+    img: images.genres['dan-tranh'].nha_nhac
   }
 ];
 

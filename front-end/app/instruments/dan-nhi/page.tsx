@@ -13,21 +13,21 @@ const DAN_NHI_GENRES: Genre[] = [
     id: 'hat-xam',
     title: 'Hát Xẩm',
     desc: 'Người bạn tri kỷ của những nghệ sĩ hát xẩm trên các nẻo đường quê Việt.',
-    img: images['dan-nhi'].genre_hat_xam,
+    img: images.genres['dan-nhi'].hat_xam,
     tag: ''
   },
   {
     id: 'nha-nhac',
     title: 'Nhã Nhạc Cung Đình',
     desc: 'Giữ vai trò chủ đạo trong việc dẫn dắt giai điệu của các đại nhạc cung đình.',
-    img: images['dan-nhi'].genre_nha_nhac,
+    img: images.genres['dan-nhi'].nha_nhac,
     tag: 'Tiêu Điểm'
   },
   {
     id: 'cheo-cai-luong',
     title: 'Chèo & Cải Lương',
     desc: 'Âm sắc mặn mà, luyến láy đặc trưng cho các vở kịch hát truyền thống.',
-    img: images['dan-nhi'].genre_cheo_cai_luong,
+    img: images.genres['dan-nhi'].cheo_cai_luong,
     tag: ''
   }
 ];

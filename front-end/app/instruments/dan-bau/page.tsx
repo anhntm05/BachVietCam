@@ -14,21 +14,21 @@ const DAN_BAU_GENRES: Genre[] = [
     id: 'hat-xam',
     title: 'Hát Xẩm',
     desc: 'Gắn liền với đời sống người dân lao động, tiếng Đàn Bầu trong Xẩm mang nét mộc mạc, kể chuyện đời đầy thăng trầm.',
-    img: images['dan-bau'].genre_hat_xam,
+    img: images.genres['dan-bau'].hat_xam,
     tag: ''
   },
   {
     id: 'cai-luong',
     title: 'Cải Lương',
     desc: 'Trong không gian nghệ thuật bác học và sân khấu kịch hát, Đàn Bầu góp phần tạo nên những cao trào cảm xúc mãnh liệt.',
-    img: images['dan-bau'].genre_cai_luong,
+    img: images.genres['dan-bau'].cai_luong,
     tag: 'Tiêu Điểm'
   },
   {
     id: 'hoa-tau',
     title: 'Hòa Tấu Đương Đại',
     desc: 'Khi kết hợp với dàn nhạc giao hưởng hoặc nhạc điện tử, Đàn Bầu mang đến một hơi thở mới đầy sang trọng và bí ẩn.',
-    img: images['dan-bau'].genre_hoa_tau,
+    img: images.genres['dan-bau'].hoa_tau,
     tag: ''
   }
 ];
