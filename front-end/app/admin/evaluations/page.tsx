@@ -26,6 +26,14 @@ export default function EvaluationsPage() {
   const [evaluations, setEvaluations] = useState<Evaluation[]>([]);
   const [loading, setLoading] = useState(true);
   const [selectedEval, setSelectedEval] = useState<Evaluation | null>(null);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [pageInput, setPageInput] = useState('1');
+  const [pageWarning, setPageWarning] = useState('');
+  const itemsPerPage = 10;
+
+  useEffect(() => {
+    setPageInput(currentPage.toString());
+  }, [currentPage]);
 
   useEffect(() => {
     const fetchEvaluations = async () => {
@@ -62,6 +70,22 @@ export default function EvaluationsPage() {
     return 'bg-error-container/20 text-error';
   };
 
+  const totalPages = Math.ceil(evaluations.length / itemsPerPage);
+  const currentEvaluations = evaluations.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
+
+  const handlePageSubmit = (e: React.FormEvent | React.FocusEvent) => {
+    e.preventDefault();
+    const newPage = parseInt(pageInput, 10);
+    if (isNaN(newPage) || newPage <= 0 || newPage > totalPages) {
+      setPageWarning('Page not exists');
+      setPageInput(currentPage.toString());
+      setTimeout(() => setPageWarning(''), 3000);
+    } else {
+      setPageWarning('');
+      setCurrentPage(newPage);
+    }
+  };
+
   return (
     <div className="flex-1 p-8 bg-[radial-gradient(#d4af3710_1px,transparent_1px)]" style={{ backgroundSize: '20px 20px' }}>
       <div className="flex justify-between items-end mb-8">
@@ -85,6 +109,49 @@ export default function EvaluationsPage() {
       <div className="grid grid-cols-12 gap-6 items-start">
         {/* Table Container (Bento Box) */}
         <div className="col-span-12 lg:col-span-8 bg-surface-container-lowest rounded-xl border border-primary-container/20 overflow-hidden shadow-sm">
+          {/* Pagination Controls */}
+          {totalPages > 1 && (
+            <div className="flex items-center justify-between p-4 border-b border-outline-variant/10">
+              <span className="text-sm text-on-surface-variant">
+                Showing {(currentPage - 1) * itemsPerPage + 1} to {Math.min(currentPage * itemsPerPage, evaluations.length)} of {evaluations.length} entries
+              </span>
+              <div className="flex gap-2 items-center">
+                <button 
+                  onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
+                  disabled={currentPage === 1}
+                  className="px-4 py-2 text-sm rounded-lg border border-outline-variant/20 disabled:opacity-50 hover:bg-surface-container-high transition-colors font-semibold"
+                >
+                  Previous
+                </button>
+                
+                <form onSubmit={handlePageSubmit} className="flex items-center gap-2 relative mx-2">
+                  <span className="text-sm font-semibold text-on-surface-variant">Page</span>
+                  <input
+                    type="number"
+                    value={pageInput}
+                    onChange={(e) => setPageInput(e.target.value)}
+                    onBlur={handlePageSubmit}
+                    className="w-14 px-2 py-1 text-center text-sm border border-outline-variant/30 rounded focus:outline-none focus:border-primary font-semibold"
+                  />
+                  <span className="text-sm font-semibold text-on-surface-variant">of {totalPages}</span>
+                  {pageWarning && (
+                    <span className="absolute -top-8 left-1/2 -translate-x-1/2 bg-error text-white text-xs px-2 py-1 rounded whitespace-nowrap shadow-md z-10">
+                      {pageWarning}
+                    </span>
+                  )}
+                </form>
+
+                <button 
+                  onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
+                  disabled={currentPage === totalPages}
+                  className="px-4 py-2 text-sm rounded-lg border border-outline-variant/20 disabled:opacity-50 hover:bg-surface-container-high transition-colors font-semibold"
+                >
+                  Next
+                </button>
+              </div>
+            </div>
+          )}
+
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse">
               <thead className="bg-surface-container-low">
@@ -106,7 +173,7 @@ export default function EvaluationsPage() {
                     <td colSpan={5} className="px-6 py-8 text-center text-on-surface-variant">No evaluation logs found.</td>
                   </tr>
                 ) : (
-                  evaluations.map((evalItem) => {
+                  currentEvaluations.map((evalItem) => {
                     const isSelected = selectedEval?._id === evalItem._id;
                     return (
                       <tr 
@@ -146,7 +213,7 @@ export default function EvaluationsPage() {
         </div>
 
         {/* Right Column: Inspector & Audio Player (Bento Box) */}
-        <div className="col-span-12 lg:col-span-4 flex flex-col gap-6">
+        <div className="col-span-12 lg:col-span-4 flex flex-col gap-6 lg:sticky lg:top-8 self-start max-h-[calc(100vh-4rem)] overflow-y-auto pr-2 pb-4 custom-scrollbar">
           {/* Audio Player Glass Panel */}
           <div className="bg-white/60 backdrop-blur-md rounded-xl p-6 shadow-lg border-t-2 border-primary relative overflow-hidden">
             <div className="absolute top-0 right-0 p-4 opacity-5">
@@ -172,7 +239,7 @@ export default function EvaluationsPage() {
                 <button className="text-tertiary hover:scale-110 transition-transform"><span className="material-symbols-outlined">skip_next</span></button>
               </div>
               
-              <div className="grid grid-cols-2 gap-3 mt-2">
+              {/* <div className="grid grid-cols-2 gap-3 mt-2">
                 <button className="flex flex-col items-center gap-1 p-4 rounded-xl border border-error/20 bg-error-container/5 text-error hover:bg-error-container/10 transition-all group">
                   <span className="material-symbols-outlined group-hover:fill-1 transition-all">flag</span>
                   <span className="font-label-sm text-[11px] font-bold uppercase tracking-tighter">Flag Bad Audio</span>
@@ -181,7 +248,7 @@ export default function EvaluationsPage() {
                   <span className="material-symbols-outlined">analytics</span>
                   <span className="font-label-sm text-[11px] font-bold uppercase tracking-tighter">Detailed Analysis</span>
                 </button>
-              </div>
+              </div> */}
             </div>
           </div>
 

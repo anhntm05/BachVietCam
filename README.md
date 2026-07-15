@@ -80,10 +80,10 @@ cp .env.example .env             # Windows: copy .env.example .env
 npm run dev
 ```
 
-### Terminal 3 — Web Portal (Next.js, cổng 3000)
+### Terminal 3 — Front-end (Next.js, cổng 3001)
 
 ```bash
-cd web-portal
+cd front-end
 npm install
 npm run dev
 ```

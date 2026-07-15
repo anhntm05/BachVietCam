@@ -4,8 +4,8 @@ import InstrumentActionButtons from '@/components/features/instruments/general/I
 
 export default function HeroSection() {
   return (
-    <section className="px-margin-desktop pt-4 max-w-container-max mx-auto mb-16 relative z-10">
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
+    <section className="hero-gradient w-full py-20 relative z-10">
+      <div className="px-margin-desktop max-w-container-max mx-auto grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
         <div className="lg:col-span-6 space-y-6">
           <BackButton />
           <div className="inline-flex items-center gap-2 text-primary">
@@ -24,7 +24,7 @@ export default function HeroSection() {
         <div className="lg:col-span-6 relative mt-12 lg:mt-0">
           <div className="aspect-[4/5] rounded-2xl overflow-hidden bg-white/40 backdrop-blur-md p-4 border border-primary-container/20 border-t-2 border-t-primary-container">
             <img alt="Đàn Nguyệt" className="w-full h-full object-cover rounded-xl shadow-2xl" 
-            src="https://lirp.cdn-website.com/46b951bd/dms3rep/multi/opt/maxresdefault%20(1)-1280x720-1920w.jpg" />
+            src="https://i.discogs.com/fS0tfkgBLRT6BxmFph2pf2ZnI6X2NPTyWNUBuoznD9w/rs:fit/g:sm/q:90/h:600/w:503/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9BLTkxMTU3/NS0xMjI4NTkyMjkx/LmpwZWc.jpeg" />
           </div>
           <div className="absolute -bottom-6 -left-6 bg-white/40 backdrop-blur-md p-6 max-w-xs shadow-2xl border border-primary-container/20 border-t-2 border-t-primary-container rounded-xl">
             <p className="text-primary font-bold mb-1">Âm sắc thanh tao</p>

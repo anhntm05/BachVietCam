@@ -33,7 +33,7 @@ const DAN_NGUYET_GENRES: Genre[] = [
 
 export default function DanNguyetPage() {
   return (
-    <main className="pt-20 pb-20 relative overflow-hidden">
+    <main className="pt-20">
       {/* Floating Lotus Motifs */}
       <span className="material-symbols-outlined lotus-bg text-[400px] absolute top-20 -left-40 z-0 opacity-[0.03] pointer-events-none">filter_vintage</span>
       <span className="material-symbols-outlined lotus-bg text-[300px] absolute bottom-40 -right-20 z-0 opacity-[0.03] pointer-events-none">filter_vintage</span>
@@ -48,6 +48,8 @@ export default function DanNguyetPage() {
         title="Hồn Nhạc Trong Từng Thể Loại"
         subtitle="Từ chốn linh thiêng cửa đền đến sân khấu nghệ thuật bác học, Đàn Nguyệt luôn là linh hồn của những giai điệu bất hủ."
         genres={DAN_NGUYET_GENRES}
+        bgClass="bg-inverse-surface"
+        isDark={true}
       />
 
       {/* Call to Action Section */}
